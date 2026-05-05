@@ -71,7 +71,7 @@ export default function Home() {
           </div>
           <div className="hero-image-wrapper" style={{ boxShadow: 'none', background: 'transparent' }}>
             <Image 
-              src="/hero.jpg" 
+              src="/hero2.png" 
               alt="Logo Amar-TEA completa" 
               width={600} 
               height={400} 
@@ -285,6 +285,66 @@ export default function Home() {
               <h4>Acompanhamento</h4>
               <p>Sessões contínuas, reavaliações e feedback constante com a família.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Instagram Feed */}
+      <section className="section instagram-feed">
+        <div className="container">
+          <h2 className="section-title">Siga-nos no Instagram</h2>
+          <p className="section-subtitle">
+            Acompanhe nosso dia a dia, dicas e conteúdos sobre desenvolvimento e cuidado terapêutico.
+          </p>
+          <div style={{ textAlign: 'center' }}>
+            <a
+              href="https://instagram.com/clinicamartea"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="instagram-handle"
+            >
+              📷 @clinicamartea
+            </a>
+          </div>
+          <div className="instagram-loading-bar" title="Carregando publicações recentes..."></div>
+          <div className="instagram-grid">
+            {[
+              { src: "/insta1.png", likes: "47", caption: "Nosso espaço de acolhimento 💚" },
+              { src: "/insta2.png", likes: "83", caption: "Cada conquista é única 🧩" },
+              { src: "/insta3.png", likes: "61", caption: "Terapia com amor e dedicação" },
+              { src: "/insta4.png", likes: "95", caption: "Família faz parte do processo ❤️" },
+              { src: "/insta5.png", likes: "72", caption: "Amar-TEA Clínica Multidisciplinar" },
+            ].map((post, i) => (
+              <a
+                key={i}
+                href="https://instagram.com/clinicamartea"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="instagram-post"
+              >
+                <Image
+                  src={post.src}
+                  alt={post.caption}
+                  width={400}
+                  height={400}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div className="instagram-post-overlay">
+                  <span style={{ fontSize: '1.5rem' }}>❤️</span>
+                  <span>{post.likes}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <a
+              href="https://instagram.com/clinicamartea"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Ver mais no Instagram
+            </a>
           </div>
         </div>
       </section>
