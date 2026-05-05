@@ -16,6 +16,7 @@ import {
   Quote
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import FloatingElements from "./components/FloatingElements";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,6 +35,7 @@ export default function Home() {
 
   return (
     <main>
+      <FloatingElements />
       {/* Header */}
       <header className={`header ${scrolled ? "shadow-md" : ""}`} style={{ boxShadow: scrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none' }}>
         <div className="container header-container">
