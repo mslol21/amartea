@@ -240,11 +240,12 @@ export default function LandingPage() {
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="p-8 rounded-[2.5rem] bg-background border border-gray-100 hover:border-primary/20 transition-all hover:shadow-xl group"
+              className="p-8 rounded-[2.5rem] bg-background border border-gray-100 hover:border-primary/20 transition-all hover:shadow-xl group cursor-pointer"
             >
-              <div className="mb-6 p-4 bg-white rounded-2xl w-fit shadow-sm group-hover:scale-110 transition-transform">
+              <div className="mb-6 p-4 bg-white rounded-2xl w-fit shadow-sm group-hover:scale-110 group-active:scale-110 transition-transform">
                 {service.icon}
               </div>
               <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
@@ -271,14 +272,15 @@ export default function LandingPage() {
                 key={item.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ delay: i * 0.05 }}
                 viewport={{ once: true }}
               >
                 <Link 
                   href={`/glossario/${item.id}`} 
-                  className="block p-6 md:p-8 bg-white rounded-[2rem] border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all group h-full"
+                  className="block p-6 md:p-8 bg-white rounded-[2rem] border border-gray-100 hover:border-primary/30 active:border-primary/50 hover:shadow-xl active:shadow-inner active:scale-[0.98] transition-all group h-full"
                 >
-                  <div className="text-2xl md:text-3xl font-bold mb-2 font-heading" style={{ color: item.color }}>
+                  <div className="text-2xl md:text-3xl font-bold mb-2 font-heading group-active:scale-110 transition-transform" style={{ color: item.color }}>
                     {item.abbr}
                   </div>
                   <h4 className="text-lg font-bold text-text-main mb-4 leading-tight group-hover:text-primary transition-colors">

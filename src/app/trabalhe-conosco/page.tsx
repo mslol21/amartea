@@ -55,9 +55,10 @@ export default function WorkWithUs() {
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="p-8 rounded-[2.5rem] bg-white shadow-xl shadow-primary/5 border border-primary/5 text-center"
+              className="p-8 rounded-[2.5rem] bg-white shadow-xl shadow-primary/5 border border-primary/5 text-center cursor-pointer"
             >
               <div className="mb-6 p-4 bg-primary-bg rounded-2xl w-fit mx-auto">
                 {item.icon}
