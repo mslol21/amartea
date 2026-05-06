@@ -151,7 +151,7 @@ export default function LandingPage() {
       </section>
 
       {/* 3. AUTORIDADE */}
-      <section className="section-padding bg-primary-bg/30">
+      <section id="sobre" className="section-padding bg-primary-bg/30">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeIn}>
@@ -196,30 +196,43 @@ export default function LandingPage() {
       </section>
 
       {/* 4. SOLUÇÃO (SERVIÇOS) */}
-      <section className="section-padding bg-white">
+      <section id="especialidades" className="section-padding bg-white">
         <div className="container-custom text-center mb-16">
-          <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-bold mb-6">Como ajudamos seu filho a evoluir</motion.h2>
+          <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-bold mb-6">Nossos Serviços Especializados</motion.h2>
+          <p className="text-xl text-text-muted max-w-3xl mx-auto">
+            Oferecemos uma abordagem multidisciplinar completa para apoiar o desenvolvimento do seu filho em todas as áreas.
+          </p>
         </div>
-        <div className="container-custom grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="container-custom grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              title: "Desenvolvimento da fala",
-              desc: "Ajudamos seu filho a se comunicar melhor através de técnicas modernas de fonoaudiologia.",
+              title: "Fonoaudiologia",
+              desc: "Especializada em linguagem, fala, mastigação e deglutição, ajudando a criança a se comunicar com clareza e segurança.",
               icon: <MessageCircle className="text-primary" size={32} />
             },
             {
-              title: "Comportamento e socialização",
-              desc: "Trabalhamos interação e controle emocional para uma vida social mais saudável.",
+              title: "Psicologia Infantil",
+              desc: "Apoio emocional e comportamental para lidar com ansiedade, medos, regulação emocional e desenvolvimento social.",
               icon: <Users className="text-secondary" size={32} />
             },
             {
-              title: "Atendimento para TEA",
-              desc: "Acompanhamento especializado com protocolos baseados em ciência (ABA).",
-              icon: <CheckCircle2 className="text-accent" size={32} />
+              title: "Terapia Ocupacional",
+              desc: "Foco na autonomia das Atividades de Vida Diária (AVDs), integração sensorial e coordenação motora fina.",
+              icon: <Zap className="text-accent" size={32} />
             },
             {
-              title: "Apoio para pais",
-              desc: "Orientação prática para o dia a dia e suporte emocional para toda a família.",
+              title: "Intervenção ABA",
+              desc: "Análise do Comportamento Aplicada, padrão ouro para o tratamento do autismo, focada em habilidades sociais e redução de comportamentos desafiadores.",
+              icon: <ShieldCheck className="text-primary" size={32} />
+            },
+            {
+              title: "Psicopedagogia",
+              desc: "Intervenção focada nos processos de aprendizagem, dificuldades escolares e estratégias de estudo personalizadas.",
+              icon: <Star className="text-secondary" size={32} />
+            },
+            {
+              title: "Apoio à Família",
+              desc: "Orientação parental constante para que o tratamento continue de forma eficaz e harmoniosa dentro de casa.",
               icon: <Heart className="text-primary" size={32} />
             }
           ].map((service, i) => (
@@ -235,7 +248,7 @@ export default function LandingPage() {
                 {service.icon}
               </div>
               <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-              <p className="text-text-muted">{service.desc}</p>
+              <p className="text-text-muted leading-relaxed">{service.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -282,7 +295,7 @@ export default function LandingPage() {
       </section>
 
       {/* 5. PROVA SOCIAL */}
-      <section className="section-padding bg-secondary-bg/20 overflow-hidden">
+      <section id="depoimentos" className="section-padding bg-secondary-bg/20 overflow-hidden">
         <div className="container-custom text-center mb-16">
           <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-bold">O que os pais dizem</motion.h2>
         </div>
@@ -323,7 +336,7 @@ export default function LandingPage() {
       </section>
 
       {/* 6. COMO FUNCIONA */}
-      <section className="section-padding bg-white">
+      <section id="como-funciona" className="section-padding bg-white">
         <div className="container-custom text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Como começar</h2>
           <p className="text-xl text-text-muted">Um processo simples para transformar o futuro do seu filho.</p>
@@ -390,7 +403,7 @@ export default function LandingPage() {
       </section>
 
       {/* 9. LOCALIZAÇÃO */}
-      <section className="section-padding bg-white">
+      <section id="localizacao" className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center bg-accent-bg/30 p-8 md:p-16 rounded-[3rem]">
             <div>

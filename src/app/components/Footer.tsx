@@ -25,9 +25,12 @@ export default function Footer() {
             <h4 className="text-xl font-heading font-bold">Navegação</h4>
             <ul className="space-y-4">
               <li><Link href="/#sobre" className="text-gray-400 hover:text-white transition-colors">Sobre a Clínica</Link></li>
-              <li><Link href="/#especialidades" className="text-gray-400 hover:text-white transition-colors">Especialidades</Link></li>
+              <li><Link href="/#especialidades" className="text-gray-400 hover:text-white transition-colors">Serviços & Especialidades</Link></li>
+              <li><Link href="/#glossario" className="text-gray-400 hover:text-white transition-colors">Glossário de Siglas</Link></li>
+              <li><Link href="/#depoimentos" className="text-gray-400 hover:text-white transition-colors">Depoimentos</Link></li>
               <li><Link href="/#como-funciona" className="text-gray-400 hover:text-white transition-colors">Como Funciona</Link></li>
-              <li><Link href="/#agendamento" className="text-gray-400 hover:text-white transition-colors">Agendamento</Link></li>
+              <li><Link href="/#localizacao" className="text-gray-400 hover:text-white transition-colors">Onde Estamos</Link></li>
+              <li><Link href="/trabalhe-conosco" className="text-gray-400 hover:text-white transition-colors">Trabalhe Conosco</Link></li>
             </ul>
           </div>
 
