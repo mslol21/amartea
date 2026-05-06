@@ -53,17 +53,17 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-screen">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen flex items-center pt-20 bg-gradient-to-br from-primary-bg via-background to-secondary-bg overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center pt-20 bg-gradient-to-br from-soft-mint via-white to-soft-blue overflow-hidden">
         <div className="container-custom grid lg:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur shadow-sm border border-primary/10 text-primary-dark font-medium mb-6">
               <ShieldCheck size={18} />
               <span>Clínica Especializada em Desenvolvimento Infantil</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-text-main mb-6 leading-[1.1]">
+            <h1 className="text-3xl md:text-5xl font-bold text-text-main mb-6 leading-[1.2]">
               Seu filho não está falando ou tem dificuldade para se comunicar?
             </h1>
-            <p className="text-xl text-text-muted mb-10 leading-relaxed">
+            <p className="text-lg text-text-muted mb-10 leading-relaxed max-w-xl">
               Avaliação especializada em desenvolvimento infantil com plano personalizado para ajudar seu filho a evoluir com segurança.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
@@ -108,8 +108,8 @@ export default function LandingPage() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">Você tem percebido isso no seu filho?</h2>
-              <p className="text-xl text-text-muted">Sinais que podem indicar a necessidade de um acompanhamento especializado.</p>
+              <h2 className="text-2xl md:text-4xl font-bold mb-6">Você tem percebido isso no seu filho?</h2>
+              <p className="text-lg text-text-muted">Sinais que podem indicar a necessidade de um acompanhamento especializado.</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6 mb-12">
@@ -134,8 +134,8 @@ export default function LandingPage() {
             </div>
 
             <div className="text-center">
-              <p className="text-2xl font-bold text-secondary mb-8">"Quanto antes agir, melhores são os resultados."</p>
-              <a href={whatsappUrl} className="inline-flex items-center gap-2 text-primary-dark font-bold text-lg hover:underline decoration-2 underline-offset-4">
+              <p className="text-xl font-bold text-secondary mb-8">"Quanto antes agir, melhores são os resultados."</p>
+              <a href={whatsappUrl} className="inline-flex items-center gap-2 text-primary-dark font-bold hover:underline decoration-2 underline-offset-4">
                 Quero conversar sobre meu filho <ArrowRight size={20} />
               </a>
             </div>
@@ -144,12 +144,12 @@ export default function LandingPage() {
       </section>
 
       {/* 3. AUTORIDADE */}
-      <section id="sobre" className="section-padding bg-primary-bg/30">
+      <section id="sobre" className="section-padding bg-soft-yellow/30">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">Especialistas em desenvolvimento infantil</h2>
-              <p className="text-lg text-text-muted mb-6 leading-relaxed">
+              <h2 className="text-2xl md:text-4xl font-bold mb-8">Especialistas em desenvolvimento infantil</h2>
+              <p className="text-base text-text-muted mb-6 leading-relaxed">
                 Somos uma clínica multidisciplinar focada no desenvolvimento integral de crianças. Nossa equipe é composta por profissionais apaixonados e altamente qualificados.
               </p>
               <p className="text-lg text-text-muted mb-8 leading-relaxed">
@@ -191,8 +191,8 @@ export default function LandingPage() {
       {/* 4. SOLUÇÃO (SERVIÇOS) */}
       <section id="especialidades" className="section-padding bg-white">
         <div className="container-custom text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Nossos Serviços Especializados</h2>
-          <p className="text-xl text-text-muted max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">Nossos Serviços Especializados</h2>
+          <p className="text-lg text-text-muted max-w-3xl mx-auto">
             Oferecemos uma abordagem multidisciplinar completa para apoiar o desenvolvimento do seu filho em todas as áreas.
           </p>
         </div>
@@ -236,19 +236,19 @@ export default function LandingPage() {
               <div className="mb-6 p-4 bg-white rounded-2xl w-fit shadow-sm">
                 {service.icon}
               </div>
-              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-              <p className="text-text-muted leading-relaxed">{service.desc}</p>
+              <h3 className="text-xl font-bold mb-4">{service.title}</h3>
+              <p className="text-text-muted leading-relaxed text-sm">{service.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* NOVO: Entendendo as Siglas (Glossário) */}
-      <section id="glossario" className="section-padding bg-background/50">
+      <section id="glossario" className="section-padding bg-soft-mint/30">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Entendendo as Siglas</h2>
-            <p className="text-xl text-text-muted max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-4xl font-bold mb-6">Entendendo as Siglas</h2>
+            <p className="text-lg text-text-muted max-w-3xl mx-auto">
               O universo do neurodesenvolvimento tem muitos termos técnicos. 
               Preparamos um guia rápido e didático para ajudar você a compreender as principais siglas:
             </p>
@@ -278,9 +278,9 @@ export default function LandingPage() {
       </section>
 
       {/* 5. PROVA SOCIAL */}
-      <section id="depoimentos" className="section-padding bg-secondary-bg/20 overflow-hidden">
+      <section id="depoimentos" className="section-padding bg-soft-blue/20 overflow-hidden">
         <div className="container-custom text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold">O que os pais dizem</h2>
+          <h2 className="text-2xl md:text-4xl font-bold">O que os pais dizem</h2>
         </div>
         <div className="container-custom grid md:grid-cols-3 gap-8">
           {[
@@ -320,8 +320,8 @@ export default function LandingPage() {
       {/* 6. COMO FUNCIONA */}
       <section id="como-funciona" className="section-padding bg-white">
         <div className="container-custom text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Como começar</h2>
-          <p className="text-xl text-text-muted">Um processo simples para transformar o futuro do seu filho.</p>
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">Como começar</h2>
+          <p className="text-lg text-text-muted">Um processo simples para transformar o futuro do seu filho.</p>
         </div>
         <div className="container-custom grid md:grid-cols-4 gap-8">
           {[
@@ -343,9 +343,9 @@ export default function LandingPage() {
       </section>
 
       {/* 7. QUEBRA DE OBJEÇÃO (FAQ) */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-soft-lavender/30">
         <div className="container-custom max-w-3xl">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Ainda com dúvidas?</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-16">Ainda com dúvidas?</h2>
           <div className="space-y-4">
             {faqData.map((faq, i) => (
               <div key={i} className="bg-white rounded-3xl overflow-hidden border border-gray-100">
@@ -371,7 +371,7 @@ export default function LandingPage() {
       <section className="py-20 bg-primary-dark">
         <div className="container-custom text-center">
           <div>
-             <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">Não deixe para depois. O tempo é o melhor aliado do seu filho.</h2>
+             <h2 className="text-2xl md:text-4xl font-bold text-white mb-10">Não deixe para depois. O tempo é o melhor aliado do seu filho.</h2>
              <a 
                 href={whatsappUrl} 
                 target="_blank" 
@@ -423,10 +423,10 @@ export default function LandingPage() {
       </section>
 
       {/* 10. CTA FINAL */}
-      <section className="section-padding bg-gradient-to-b from-white to-primary-bg text-center">
+      <section className="section-padding bg-gradient-to-b from-white to-soft-mint/40 text-center">
         <div className="container-custom max-w-4xl">
           <div>
-            <h2 className="text-4xl md:text-6xl font-bold text-text-main mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-text-main mb-8 leading-tight">
               Quanto antes começar, melhor será o desenvolvimento do seu filho
             </h2>
             <p className="text-xl text-text-muted mb-12">

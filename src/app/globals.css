@@ -4,24 +4,29 @@
   --color-primary: #8da399;
   --color-primary-light: #a9beba;
   --color-primary-dark: #6e847b;
-  --color-primary-bg: #eef2f0;
+  --color-primary-bg: #f2f7f5;
   
   --color-secondary: #c86b5e;
   --color-secondary-light: #e08b7e;
-  --color-secondary-bg: #f9ecea;
+  --color-secondary-bg: #fcf4f2;
 
   --color-accent: #6b7a8f;
   --color-accent-light: #8e9bb0;
-  --color-accent-bg: #eef0f4;
+  --color-accent-bg: #f4f6f9;
+
+  --color-soft-blue: #dbe9f4;
+  --color-soft-yellow: #f9f1e6;
+  --color-soft-mint: #e2f0ea;
+  --color-soft-lavender: #f0eef9;
 
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #1EBE5D;
 
-  --color-background: #fdfcfb;
+  --color-background: #ffffff;
   --color-surface: #ffffff;
   
-  --color-text-main: #3a3838;
-  --color-text-muted: #736f6f;
+  --color-text-main: #2d2d2d;
+  --color-text-muted: #5f5f5f;
 
   --font-heading: var(--font-heading), sans-serif;
   --font-body: var(--font-body), sans-serif;

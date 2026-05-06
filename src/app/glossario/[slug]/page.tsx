@@ -70,7 +70,7 @@ export default function GlossaryDetailPage() {
                   >
                     {item.abbr}
                   </div>
-                  <h1 className="text-4xl md:text-6xl font-bold text-text-main leading-tight max-w-2xl">
+                  <h1 className="text-3xl md:text-5xl font-bold text-text-main leading-tight max-w-2xl">
                     {item.title}
                   </h1>
                 </div>
@@ -82,7 +82,7 @@ export default function GlossaryDetailPage() {
                 </div>
               </div>
 
-              <p className="text-xl md:text-2xl text-text-muted mb-12 max-w-4xl leading-relaxed">
+              <p className="text-lg md:text-xl text-text-muted mb-12 max-w-4xl leading-relaxed">
                 {item.description}
               </p>
 
@@ -92,14 +92,14 @@ export default function GlossaryDetailPage() {
                 {item.content.split('\n').map((line: string, i: number) => {
                   if (line.trim().startsWith('###')) {
                     return (
-                      <h3 key={i} className="text-2xl md:text-3xl font-bold mt-12 mb-6 font-heading" style={{ color: item.color }}>
+                      <h3 key={i} className="text-xl md:text-2xl font-bold mt-12 mb-6 font-heading" style={{ color: item.color }}>
                         {line.replace('###', '')}
                       </h3>
                     );
                   }
                   if (line.trim().startsWith('-')) {
                     return (
-                      <li key={i} className="list-none relative pl-8 mb-4 text-lg md:text-xl">
+                      <li key={i} className="list-none relative pl-8 mb-4 text-base md:text-lg">
                         <span className="absolute left-0 font-bold" style={{ color: item.color }}>•</span>
                         {line.replace('-', '').trim()}
                       </li>
@@ -108,13 +108,13 @@ export default function GlossaryDetailPage() {
                   if (line.trim().startsWith('1.') || line.trim().startsWith('2.') || line.trim().startsWith('3.')) {
                     return (
                       <div key={i} className="mb-8 p-6 md:p-8 bg-background rounded-2xl border-l-4" style={{ borderColor: item.color }}>
-                        <strong className="text-xl md:text-2xl block mb-2">{line.split(':')[0]}</strong>
-                        <span className="text-lg md:text-xl text-text-muted leading-relaxed">{line.split(':')[1]}</span>
+                        <strong className="text-lg md:text-xl block mb-2">{line.split(':')[0]}</strong>
+                        <span className="text-base md:text-lg text-text-muted leading-relaxed">{line.split(':')[1]}</span>
                       </div>
                     );
                   }
                   if (line.trim() === "") return null;
-                  return <p key={i} className="mb-6 text-lg md:text-xl leading-relaxed">{line}</p>;
+                  return <p key={i} className="mb-6 text-base md:text-lg leading-relaxed">{line}</p>;
                 })}
               </div>
 

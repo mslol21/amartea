@@ -23,10 +23,10 @@ export default function WorkWithUs() {
             <Briefcase size={20} />
             <span>Faça parte da nossa equipe</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-text-main mb-8">
+          <h1 className="text-3xl md:text-5xl font-bold text-text-main mb-8">
             Transforme vidas com a gente na Amar-TEA
           </h1>
-          <p className="text-xl text-text-muted leading-relaxed">
+          <p className="text-lg text-text-muted leading-relaxed">
             Buscamos profissionais apaixonados pelo desenvolvimento infantil e que desejam atuar em um ambiente acolhedor, ético e focado na evolução real de cada criança.
           </p>
         </div>
