@@ -19,6 +19,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import { glossaryData } from "./glossario/data";
+import Script from "next/script";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -450,20 +451,22 @@ export default function LandingPage() {
       </section>
 
       {/* Meta Pixel and Structure Placeholder */}
-      <script dangerouslySetInnerHTML={{ __html: `
-        // Exemplo de rastreamento de evento de conversão
-        function trackWhatsAppClick() {
-          if (typeof fbq !== 'undefined') {
-            fbq('track', 'Contact');
+      <Script id="tracking-scripts" strategy="afterInteractive">
+        {`
+          // Exemplo de rastreamento de evento de conversão
+          function trackWhatsAppClick() {
+            if (typeof fbq !== 'undefined') {
+              fbq('track', 'Contact');
+            }
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'conversion', {'send_to': 'AW-CONVERSION_ID'});
+            }
           }
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'conversion', {'send_to': 'AW-CONVERSION_ID'});
-          }
-        }
-        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-          link.addEventListener('click', trackWhatsAppClick);
-        });
-      `}} />
+          document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', trackWhatsAppClick);
+          });
+        `}
+      </Script>
     </div>
   );
 }
