@@ -61,11 +61,7 @@ export default function GlossaryDetailPage() {
               style={{ background: item.color }}
             ></div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
+            <div>
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-10">
                 <div className="space-y-4">
                   <div 
@@ -137,7 +133,7 @@ export default function GlossaryDetailPage() {
                   Falar com Especialista
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

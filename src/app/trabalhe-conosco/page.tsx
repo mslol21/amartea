@@ -16,9 +16,8 @@ export default function WorkWithUs() {
   return (
     <div className="pt-32 pb-20 bg-gradient-to-b from-primary-bg to-white min-h-screen">
       <div className="container-custom">
-        <motion.div 
+        <div 
           className="max-w-4xl mx-auto text-center mb-20"
-          {...fadeIn}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary-dark font-bold mb-6">
             <Briefcase size={20} />
@@ -30,9 +29,9 @@ export default function WorkWithUs() {
           <p className="text-xl text-text-muted leading-relaxed">
             Buscamos profissionais apaixonados pelo desenvolvimento infantil e que desejam atuar em um ambiente acolhedor, ético e focado na evolução real de cada criança.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Por que trabalhar aqui */}
+          {/* Por que trabalhar aqui */}
         <div className="grid md:grid-cols-3 gap-8 mb-24">
           {[
             {
@@ -51,21 +50,16 @@ export default function WorkWithUs() {
               icon: <Star className="text-accent" size={32} />
             }
           ].map((item, i) => (
-            <motion.div 
+            <div 
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="p-8 rounded-[2.5rem] bg-white shadow-xl shadow-primary/5 border border-primary/5 text-center cursor-pointer"
+              className="p-8 rounded-[2.5rem] bg-white shadow-xl shadow-primary/5 border border-primary/5 text-center"
             >
               <div className="mb-6 p-4 bg-primary-bg rounded-2xl w-fit mx-auto">
                 {item.icon}
               </div>
               <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
               <p className="text-text-muted">{item.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
 

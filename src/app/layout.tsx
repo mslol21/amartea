@@ -35,7 +35,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${outfit.variable} ${inter.variable}`}>
       <body className="antialiased font-body">
-        <FloatingElements />
         <Header />
         {children}
         <Footer />

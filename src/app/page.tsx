@@ -55,7 +55,7 @@ export default function LandingPage() {
       {/* 1. HERO SECTION */}
       <section className="relative min-h-screen flex items-center pt-20 bg-gradient-to-br from-primary-bg via-background to-secondary-bg overflow-hidden">
         <div className="container-custom grid lg:grid-cols-2 gap-12 items-center relative z-10">
-          <motion.div {...fadeIn} className="max-w-2xl">
+          <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur shadow-sm border border-primary/10 text-primary-dark font-medium mb-6">
               <ShieldCheck size={18} />
               <span>Clínica Especializada em Desenvolvimento Infantil</span>
@@ -82,11 +82,8 @@ export default function LandingPage() {
                 <span className="flex items-center gap-1"><Star size={14} className="text-yellow-500" /> Primeira orientação</span>
               </div>
             </div>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+          </div>
+          <div 
             className="relative lg:block hidden"
           >
             <div className="relative z-20 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
@@ -102,7 +99,7 @@ export default function LandingPage() {
             {/* Decorative blobs */}
             <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10 animate-pulse" />
             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-secondary/20 rounded-full blur-3xl -z-10 animate-pulse delay-1000" />
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -110,10 +107,10 @@ export default function LandingPage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <motion.div {...fadeIn} className="text-center mb-16">
+            <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold mb-6">Você tem percebido isso no seu filho?</h2>
               <p className="text-xl text-text-muted">Sinais que podem indicar a necessidade de um acompanhamento especializado.</p>
-            </motion.div>
+            </div>
             
             <div className="grid md:grid-cols-2 gap-6 mb-12">
               {[
@@ -124,28 +121,24 @@ export default function LandingPage() {
                 "A escola já sinalizou preocupação",
                 "Dificuldade em interagir com outras crianças"
               ].map((item, i) => (
-                <motion.div 
+                <div 
                   key={i} 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  viewport={{ once: true }}
                   className="flex items-center gap-4 p-6 rounded-2xl bg-secondary-bg/30 border border-secondary/10"
                 >
                   <div className="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 size={20} />
                   </div>
                   <span className="text-lg font-medium text-text-main">{item}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.div {...fadeIn} className="text-center">
+            <div className="text-center">
               <p className="text-2xl font-bold text-secondary mb-8">"Quanto antes agir, melhores são os resultados."</p>
               <a href={whatsappUrl} className="inline-flex items-center gap-2 text-primary-dark font-bold text-lg hover:underline decoration-2 underline-offset-4">
                 Quero conversar sobre meu filho <ArrowRight size={20} />
               </a>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -154,7 +147,7 @@ export default function LandingPage() {
       <section id="sobre" className="section-padding bg-primary-bg/30">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div {...fadeIn}>
+            <div>
               <h2 className="text-3xl md:text-5xl font-bold mb-8">Especialistas em desenvolvimento infantil</h2>
               <p className="text-lg text-text-muted mb-6 leading-relaxed">
                 Somos uma clínica multidisciplinar focada no desenvolvimento integral de crianças. Nossa equipe é composta por profissionais apaixonados e altamente qualificados.
@@ -172,8 +165,8 @@ export default function LandingPage() {
                   <div className="text-sm text-text-muted font-medium">Plano individualizado</div>
                 </div>
               </div>
-            </motion.div>
-            <motion.div {...fadeIn} className="grid grid-cols-2 gap-4">
+            </div>
+            <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="rounded-3xl overflow-hidden shadow-lg aspect-[3/4]">
                   <Image src="/about.png" alt="Equipe Amar-TEA" width={400} height={530} className="w-full h-full object-cover" />
@@ -190,7 +183,7 @@ export default function LandingPage() {
                    <Image src="/insta5.png" alt="Cuidado" width={400} height={530} className="w-full h-full object-cover" />
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -198,7 +191,7 @@ export default function LandingPage() {
       {/* 4. SOLUÇÃO (SERVIÇOS) */}
       <section id="especialidades" className="section-padding bg-white">
         <div className="container-custom text-center mb-16">
-          <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-bold mb-6">Nossos Serviços Especializados</motion.h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Nossos Serviços Especializados</h2>
           <p className="text-xl text-text-muted max-w-3xl mx-auto">
             Oferecemos uma abordagem multidisciplinar completa para apoiar o desenvolvimento do seu filho em todas as áreas.
           </p>
@@ -236,21 +229,16 @@ export default function LandingPage() {
               icon: <Heart className="text-primary" size={32} />
             }
           ].map((service, i) => (
-            <motion.div 
+            <div 
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="p-8 rounded-[2.5rem] bg-background border border-gray-100 hover:border-primary/20 transition-all hover:shadow-xl group cursor-pointer"
+              className="p-8 rounded-[2.5rem] bg-background border border-gray-100 hover:border-primary/10 transition-all group"
             >
-              <div className="mb-6 p-4 bg-white rounded-2xl w-fit shadow-sm group-hover:scale-110 group-active:scale-110 transition-transform">
+              <div className="mb-6 p-4 bg-white rounded-2xl w-fit shadow-sm">
                 {service.icon}
               </div>
               <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
               <p className="text-text-muted leading-relaxed">{service.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -258,39 +246,32 @@ export default function LandingPage() {
       {/* NOVO: Entendendo as Siglas (Glossário) */}
       <section id="glossario" className="section-padding bg-background/50">
         <div className="container-custom">
-          <motion.div {...fadeIn} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">Entendendo as Siglas</h2>
             <p className="text-xl text-text-muted max-w-3xl mx-auto">
               O universo do neurodesenvolvimento tem muitos termos técnicos. 
               Preparamos um guia rápido e didático para ajudar você a compreender as principais siglas:
             </p>
-          </motion.div>
+          </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {glossaryData.map((item, i) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ delay: i * 0.05 }}
-                viewport={{ once: true }}
-              >
+              <div key={item.id}>
                 <Link 
                   href={`/glossario/${item.id}`} 
-                  className="block p-6 md:p-8 bg-white rounded-[2rem] border border-gray-100 hover:border-primary/30 active:border-primary/50 hover:shadow-xl active:shadow-inner active:scale-[0.98] transition-all group h-full"
+                  className="block p-6 md:p-8 bg-white rounded-[2rem] border border-gray-100 hover:border-primary/10 transition-all h-full"
                 >
-                  <div className="text-2xl md:text-3xl font-bold mb-2 font-heading group-active:scale-110 transition-transform" style={{ color: item.color }}>
+                  <div className="text-2xl md:text-3xl font-bold mb-2 font-heading" style={{ color: item.color }}>
                     {item.abbr}
                   </div>
-                  <h4 className="text-lg font-bold text-text-main mb-4 leading-tight group-hover:text-primary transition-colors">
+                  <h4 className="text-lg font-bold text-text-main mb-4 leading-tight transition-colors">
                     {item.title}
                   </h4>
                   <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                    Saiba mais <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    Saiba mais <ArrowRight size={16} />
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -299,7 +280,7 @@ export default function LandingPage() {
       {/* 5. PROVA SOCIAL */}
       <section id="depoimentos" className="section-padding bg-secondary-bg/20 overflow-hidden">
         <div className="container-custom text-center mb-16">
-          <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-bold">O que os pais dizem</motion.h2>
+          <h2 className="text-3xl md:text-5xl font-bold">O que os pais dizem</h2>
         </div>
         <div className="container-custom grid md:grid-cols-3 gap-8">
           {[
@@ -319,9 +300,8 @@ export default function LandingPage() {
               avatar: "A"
             }
           ].map((item, i) => (
-            <motion.div 
+            <div 
               key={i}
-              {...fadeIn}
               className="bg-white p-10 rounded-[2.5rem] shadow-sm relative"
             >
               <div className="flex gap-1 text-yellow-400 mb-6">
@@ -332,7 +312,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold">{item.avatar}</div>
                 <span className="font-bold text-text-main">{item.author}</span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -390,7 +370,7 @@ export default function LandingPage() {
       {/* 8. CTA INTERMEDIÁRIO */}
       <section className="py-20 bg-primary-dark">
         <div className="container-custom text-center">
-          <motion.div {...fadeIn}>
+          <div>
              <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">Não deixe para depois. O tempo é o melhor aliado do seu filho.</h2>
              <a 
                 href={whatsappUrl} 
@@ -400,7 +380,7 @@ export default function LandingPage() {
               >
                 Agendar avaliação agora
               </a>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -445,7 +425,7 @@ export default function LandingPage() {
       {/* 10. CTA FINAL */}
       <section className="section-padding bg-gradient-to-b from-white to-primary-bg text-center">
         <div className="container-custom max-w-4xl">
-          <motion.div {...fadeIn}>
+          <div>
             <h2 className="text-4xl md:text-6xl font-bold text-text-main mb-8 leading-tight">
               Quanto antes começar, melhor será o desenvolvimento do seu filho
             </h2>
@@ -461,7 +441,7 @@ export default function LandingPage() {
               <MessageCircle size={32} />
               Agendar pelo WhatsApp
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
 
