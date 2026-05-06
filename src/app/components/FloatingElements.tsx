@@ -1,43 +1,52 @@
 "use client";
 
+import { useEffect, useState, useRef } from "react";
+import { motion, useSpring, useTransform } from "framer-motion";
+
 const elements = [
-  // Puzzle pieces
-  { type: "puzzle", color: "#8da399", size: 55, top: "8%",  left: "3%",  delay: "0s",   duration: "14s", opacity: 0.45 },
-  { type: "puzzle", color: "#c86b5e", size: 42, top: "15%", left: "90%", delay: "3s",   duration: "18s", opacity: 0.40 },
-  { type: "puzzle", color: "#6b7a8f", size: 64, top: "35%", left: "5%",  delay: "6s",   duration: "20s", opacity: 0.35 },
-  { type: "puzzle", color: "#8da399", size: 38, top: "55%", left: "93%", delay: "1s",   duration: "16s", opacity: 0.42 },
-  { type: "puzzle", color: "#c86b5e", size: 48, top: "72%", left: "2%",  delay: "9s",   duration: "19s", opacity: 0.38 },
-  { type: "puzzle", color: "#6b7a8f", size: 56, top: "85%", left: "88%", delay: "4s",   duration: "22s", opacity: 0.35 },
-  { type: "puzzle", color: "#8da399", size: 36, top: "45%", left: "96%", delay: "11s",  duration: "13s", opacity: 0.42 },
-  { type: "puzzle", color: "#c86b5e", size: 50, top: "92%", left: "12%", delay: "7s",   duration: "17s", opacity: 0.38 },
-  { type: "puzzle", color: "#8da399", size: 44, top: "20%", left: "50%", delay: "13s",  duration: "25s", opacity: 0.22 },
+  // Puzzle pieces - Sage Green, Terracotta, Slate Blue, Sand
+  { type: "puzzle", color: "#8da399", size: 42, top: "12%", left: "5%",  delay: "0s",   duration: "18s", opacity: 0.6, rotate: -15 },
+  { type: "puzzle", color: "#c86b5e", size: 36, top: "18%", left: "92%", delay: "3s",   duration: "22s", opacity: 0.5, rotate: 25 },
+  { type: "puzzle", color: "#6b7a8f", size: 48, top: "40%", left: "8%",  delay: "6s",   duration: "25s", opacity: 0.5, rotate: 10 },
+  { type: "puzzle", color: "#d4a373", size: 32, top: "60%", left: "94%", delay: "1s",   duration: "20s", opacity: 0.6, rotate: -20 },
+  { type: "puzzle", color: "#8da399", size: 38, top: "78%", left: "4%",  delay: "9s",   duration: "23s", opacity: 0.5, rotate: 15 },
+  { type: "puzzle", color: "#c86b5e", size: 42, top: "88%", left: "90%", delay: "4s",   duration: "26s", opacity: 0.4, rotate: -10 },
+  { type: "puzzle", color: "#6b7a8f", size: 30, top: "50%", left: "96%", delay: "11s",  duration: "19s", opacity: 0.5, rotate: 30 },
+  { type: "puzzle", color: "#d4a373", size: 36, top: "95%", left: "15%", delay: "7s",   duration: "21s", opacity: 0.5, rotate: -5 },
+  { type: "puzzle", color: "#8da399", size: 34, top: "25%", left: "55%", delay: "13s",  duration: "28s", opacity: 0.3, rotate: 45 },
 
   // Hearts
-  { type: "heart",  color: "#c86b5e", size: 38, top: "10%", left: "83%", delay: "2s",   duration: "15s", opacity: 0.50 },
-  { type: "heart",  color: "#8da399", size: 28, top: "42%", left: "4%",  delay: "5s",   duration: "18s", opacity: 0.45 },
-  { type: "heart",  color: "#c86b5e", size: 44, top: "65%", left: "90%", delay: "8s",   duration: "14s", opacity: 0.48 },
-  { type: "heart",  color: "#8da399", size: 32, top: "80%", left: "6%",  delay: "12s",  duration: "20s", opacity: 0.45 },
-  { type: "heart",  color: "#c86b5e", size: 24, top: "25%", left: "47%", delay: "16s",  duration: "28s", opacity: 0.28 },
-  { type: "heart",  color: "#6b7a8f", size: 30, top: "60%", left: "50%", delay: "20s",  duration: "30s", opacity: 0.22 },
+  { type: "heart",  color: "#c86b5e", size: 28, top: "8%",  left: "85%", delay: "2s",   duration: "18s", opacity: 0.7, rotate: 12 },
+  { type: "heart",  color: "#8da399", size: 22, top: "45%", left: "6%",  delay: "5s",   duration: "20s", opacity: 0.6, rotate: -15 },
+  { type: "heart",  color: "#c86b5e", size: 32, top: "68%", left: "91%", delay: "8s",   duration: "17s", opacity: 0.7, rotate: 20 },
+  { type: "heart",  color: "#8da399", size: 26, top: "82%", left: "8%",  delay: "12s",  duration: "22s", opacity: 0.6, rotate: -8 },
+  { type: "heart",  color: "#c86b5e", size: 20, top: "30%", left: "52%", delay: "16s",  duration: "30s", opacity: 0.4, rotate: 15 },
+  { type: "heart",  color: "#6b7a8f", size: 24, top: "65%", left: "55%", delay: "20s",  duration: "32s", opacity: 0.3, rotate: -20 },
 
   // Dots
-  { type: "dot",    color: "#8da399", size: 18, top: "5%",  left: "55%", delay: "0s",   duration: "12s", opacity: 0.50 },
-  { type: "dot",    color: "#c86b5e", size: 14, top: "50%", left: "52%", delay: "10s",  duration: "16s", opacity: 0.40 },
-  { type: "dot",    color: "#6b7a8f", size: 20, top: "75%", left: "46%", delay: "5s",   duration: "18s", opacity: 0.45 },
+  { type: "dot",    color: "#8da399", size: 14, top: "5%",  left: "60%", delay: "0s",   duration: "15s", opacity: 0.7 },
+  { type: "dot",    color: "#c86b5e", size: 12, top: "55%", left: "58%", delay: "10s",  duration: "20s", opacity: 0.6 },
+  { type: "dot",    color: "#6b7a8f", size: 16, top: "78%", left: "52%", delay: "5s",   duration: "22s", opacity: 0.6 },
 ];
 
 function PuzzlePiece({ color, size }: { color: string; size: number }) {
+  // Professional rounded puzzle piece path
+  const roundedPuzzlePath = "M82.5,44.5c-4.1,0-7.5-3.4-7.5-7.5s3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5S86.6,44.5,82.5,44.5z M75,41.2V26c0-2.2-1.8-4-4-4H55.8c0-4.1-3.4-7.5-7.5-7.5s-7.5,3.4-7.5,7.5H25c-2.2,0-4,1.8-4,4v15.2c4.1,0,7.5,3.4,7.5,7.5s-3.4,7.5-7.5,7.5V74c0,2.2,1.8,4,4,4h15.8c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5H71c2.2,0,4-1.8,4-4V58.8c4.1,0,7.5-3.4,7.5-7.5S79.1,41.2,75,41.2z";
+
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" fill={color}>
-      <path d="M 10 35 L 10 10 L 35 10 C 35 10 33 0 40 0 C 47 0 45 10 45 10 L 65 10 L 65 35 C 65 35 75 33 75 40 C 75 47 65 45 65 45 L 65 65 L 45 65 C 45 65 47 75 40 75 C 33 75 35 65 35 65 L 10 65 L 10 45 C 10 45 0 47 0 40 C 0 33 10 35 10 35 Z" />
+      <path d={roundedPuzzlePath} />
     </svg>
   );
 }
 
 function Heart({ color, size }: { color: string; size: number }) {
+  // More organic, rounded heart
+  const roundedHeartPath = "M50,88.9c-1.1,0-2.2-0.4-3-1.3C33.2,74.5,23.3,64.8,16.5,56.1c-7.3-9.3-11-18.4-11-26.9c0-14.7,11.9-26.6,26.6-26.6 c7.1,0,13.8,2.8,18.8,7.9c2.7,2.8,4.9,6.1,6.6,9.8c1.7-3.7,3.9-6.9,6.6-9.8c5-5.1,11.7-7.9,18.8-7.9c14.7,0,26.6,11.9,26.6,26.6 c0,8.5-3.7,17.6-11,26.9c-6.8,8.6-16.7,18.4-30.5,31.5C52.2,88.5,51.1,88.9,50,88.9z";
+  
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" fill={color}>
-      <path d="M50 85 C50 85 5 55 5 30 C5 15 15 5 30 5 C40 5 47 10 50 15 C53 10 60 5 70 5 C85 5 95 15 95 30 C95 55 50 85 50 85Z" />
+      <path d={roundedHeartPath} />
     </svg>
   );
 }
@@ -45,8 +54,74 @@ function Heart({ color, size }: { color: string; size: number }) {
 function Dot({ color, size }: { color: string; size: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" fill={color}>
-      <circle cx="50" cy="50" r="50" />
+      <circle cx="50" cy="50" r="45" />
     </svg>
+  );
+}
+
+function FloatingItem({ el }: { el: any }) {
+  const itemRef = useRef<HTMLDivElement>(null);
+  const mouseX = useSpring(0, { stiffness: 80, damping: 25 });
+  const mouseY = useSpring(0, { stiffness: 80, damping: 25 });
+  const rotate = useSpring(el.rotate || 0, { stiffness: 80, damping: 25 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!itemRef.current) return;
+
+      const rect = itemRef.current.getBoundingClientRect();
+      const itemCenterX = rect.left + rect.width / 2;
+      const itemCenterY = rect.top + rect.height / 2;
+
+      const distThreshold = 300; 
+      const dx = e.clientX - itemCenterX;
+      const dy = e.clientY - itemCenterY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < distThreshold) {
+        const force = Math.pow((distThreshold - distance) / distThreshold, 1.8);
+        const angle = Math.atan2(dy, dx);
+        
+        mouseX.set(Math.cos(angle) * -150 * force);
+        mouseY.set(Math.sin(angle) * -150 * force);
+        rotate.set((el.rotate || 0) + Math.cos(angle) * 25 * force);
+      } else {
+        mouseX.set(0);
+        mouseY.set(0);
+        rotate.set(el.rotate || 0);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY, rotate]); // Removed el.rotate to keep dependency array size constant
+
+  return (
+    <motion.div
+      ref={itemRef}
+      style={{
+        position: "absolute",
+        top: el.top,
+        left: el.left,
+        x: mouseX,
+        y: mouseY,
+        rotate: rotate,
+        opacity: el.opacity,
+        zIndex: 0,
+        pointerEvents: "none",
+      }}
+    >
+      <div 
+        style={{ 
+          animation: `floatDrift ${el.duration} ${el.delay} ease-in-out infinite alternate`,
+          filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.15))"
+        }}
+      >
+        {el.type === "puzzle" && <PuzzlePiece color={el.color} size={el.size} />}
+        {el.type === "heart"  && <Heart  color={el.color} size={el.size} />}
+        {el.type === "dot"    && <Dot    color={el.color} size={el.size} />}
+      </div>
+    </motion.div>
   );
 }
 
@@ -57,26 +132,13 @@ export default function FloatingElements() {
       style={{
         position: "fixed",
         inset: 0,
-        pointerEvents: "none",
+        pointerEvents: "none", // Container shouldn't block clicks
         zIndex: 0,
         overflow: "hidden",
       }}
     >
       {elements.map((el, i) => (
-        <div
-          key={i}
-          style={{
-            position: "absolute",
-            top: el.top,
-            left: el.left,
-            opacity: el.opacity,
-            animation: `floatDrift ${el.duration} ${el.delay} ease-in-out infinite alternate`,
-          }}
-        >
-          {el.type === "puzzle" && <PuzzlePiece color={el.color} size={el.size} />}
-          {el.type === "heart"  && <Heart  color={el.color} size={el.size} />}
-          {el.type === "dot"    && <Dot    color={el.color} size={el.size} />}
-        </div>
+        <FloatingItem key={i} el={el} />
       ))}
     </div>
   );

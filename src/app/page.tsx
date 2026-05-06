@@ -2,539 +2,468 @@
 
 import Image from "next/image";
 import { 
-  Brain, 
-  Puzzle, 
-  MessageSquare, 
-  HeartHandshake, 
-  Heart, 
-  Star, 
+  MessageCircle, 
   CheckCircle2, 
-  MapPin, 
+  ArrowRight, 
   Phone, 
+  MapPin, 
   Mail,
-  MessageCircle,
-  Quote
+  ChevronDown,
+  Star,
+  ShieldCheck,
+  Zap,
+  Users,
+  Heart
 } from "lucide-react";
-import { useEffect, useState } from "react";
-import FloatingElements from "./components/FloatingElements";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import Link from "next/link";
+import { glossaryData } from "./glossario/data";
 
-export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6 }
+};
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+export default function LandingPage() {
   const whatsappNumber = "5511940331432";
-  const whatsappMessage = "Olá! Gostaria de agendar uma avaliação na Clínica Amar-TEA.";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá, vim pelo site e quero agendar uma avaliação")}`;
+
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  const faqData = [
+    {
+      q: "Funciona mesmo?",
+      a: "Sim! Utilizamos abordagens baseadas em evidências científicas, como a Análise do Comportamento Aplicada (ABA), que é o padrão ouro para o tratamento do TEA e atrasos de desenvolvimento."
+    },
+    {
+      q: "Meu filho realmente precisa?",
+      a: "A intervenção precoce é fundamental. Quanto antes identificarmos e trabalharmos os atrasos, maior é o potencial de plasticidade cerebral e melhores são os resultados a longo prazo."
+    },
+    {
+      q: "É muito caro?",
+      a: "Oferecemos diferentes planos e pacotes terapêuticos. Acreditamos que o investimento no desenvolvimento do seu filho hoje evita custos emocionais e financeiros muito maiores no futuro."
+    }
+  ];
 
   return (
-    <main>
-      <FloatingElements />
-      {/* Header */}
-      <header className={`header ${scrolled ? "shadow-md" : ""}`} style={{ boxShadow: scrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none' }}>
-        <div className="container header-container">
-          <div className="logo" style={{ color: 'var(--primary-dark)', display: 'flex', alignItems: 'center' }}>
-            <Image src="/logo.png" alt="Logo Amar-TEA" width={80} height={80} style={{ objectFit: 'contain' }} />
-          </div>
-          <nav className="nav-links">
-            <a href="#sobre" className="nav-link">Sobre</a>
-            <a href="#especialidades" className="nav-link">Especialidades</a>
-            <a href="#para-quem" className="nav-link">Para Quem É</a>
-            <a href="#como-funciona" className="nav-link">Como Funciona</a>
-          </nav>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'none' }}>
-            Agendar
-          </a>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '1rem' }}>
-            Agendar <span className="hide-mobile">Avaliação</span>
-          </a>
-        </div>
-      </header>
-
-      {/* Hero */}
-      <section className="hero">
-        <div className="container hero-grid">
-          <div className="hero-content">
-            <h1>Desenvolvimento e Cuidado Terapêutico Individualizado</h1>
-            <p>
-              A Clínica Amar-TEA oferece um espaço acolhedor e multidisciplinar dedicado 
-              ao desenvolvimento pleno e qualidade de vida da sua família.
+    <div className="flex flex-col min-h-screen">
+      
+      {/* 1. HERO SECTION */}
+      <section className="relative min-h-screen flex items-center pt-20 bg-gradient-to-br from-primary-bg via-background to-secondary-bg overflow-hidden">
+        <div className="container-custom grid lg:grid-cols-2 gap-12 items-center relative z-10">
+          <motion.div {...fadeIn} className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur shadow-sm border border-primary/10 text-primary-dark font-medium mb-6">
+              <ShieldCheck size={18} />
+              <span>Clínica Especializada em Desenvolvimento Infantil</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-text-main mb-6 leading-[1.1]">
+              Seu filho não está falando ou tem dificuldade para se comunicar?
+            </h1>
+            <p className="text-xl text-text-muted mb-10 leading-relaxed">
+              Avaliação especializada em desenvolvimento infantil com plano personalizado para ajudar seu filho a evoluir com segurança.
             </p>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
-              <MessageCircle size={24} />
-              Agendar pelo WhatsApp
-            </a>
-          </div>
-          <div className="hero-image-wrapper" style={{ boxShadow: 'none', background: 'transparent' }}>
-            <Image 
-              src="/hero2.png" 
-              alt="Logo Amar-TEA completa" 
-              width={600} 
-              height={400} 
-              style={{ objectFit: 'contain' }}
-              priority
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Sobre a Clínica */}
-      <section id="sobre" className="section about">
-        <div className="container about-grid">
-          <div className="about-image">
-            <Image 
-              src="/about.png" 
-              alt="Ambiente da Clínica Amar-TEA" 
-              width={600} 
-              height={500} 
-            />
-          </div>
-          <div className="about-content">
-            <h2>Quem Somos</h2>
-            <p>
-              A Clínica Amar-TEA nasceu do desejo de transformar o cuidado terapêutico em uma 
-              experiência verdadeiramente humana e integrada. Nossa missão é promover o 
-              desenvolvimento e a qualidade de vida através de um olhar empático e multidisciplinar.
-            </p>
-            <p>
-              Acreditamos que cada indivíduo é único, e por isso, nosso diferencial está no 
-              atendimento personalizado, onde a família é parte fundamental do processo.
-            </p>
-            <div className="about-features">
-              <div className="feature-item">
-                <div className="feature-icon">
-                  <Star size={24} />
-                </div>
-                <div className="feature-text">
-                  <h4>Atendimento Humanizado</h4>
-                  <p>Cuidado que respeita o tempo e a individualidade.</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <div className="feature-icon">
-                  <Heart size={24} />
-                </div>
-                <div className="feature-text">
-                  <h4>Equipe Multidisciplinar</h4>
-                  <p>Profissionais integrados para resultados mais efetivos.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Serviços / Especialidades */}
-      <section id="especialidades" className="section services">
-        <div className="container">
-          <h2 className="section-title">Nossas Especialidades</h2>
-          <p className="section-subtitle">
-            Oferecemos um portfólio completo de terapias para apoiar o 
-            desenvolvimento cognitivo, motor, social e emocional.
-          </p>
-          <div className="services-grid">
-            <div className="service-card">
-              <div className="service-icon">
-                <Brain size={32} />
-              </div>
-              <h3>Psicologia</h3>
-              <p>Apoio emocional e comportamental para lidar com desafios, desenvolvendo habilidades sociais e regulação emocional.</p>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>Agendar</a>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">
-                <Puzzle size={32} />
-              </div>
-              <h3>Terapia Ocupacional</h3>
-              <p>Foco na autonomia e independência nas atividades diárias, trabalhando aspectos motores, sensoriais e cognitivos.</p>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>Agendar</a>
-            </div>
-            
-            <div className="service-card">
-              <div className="service-icon">
-                <MessageSquare size={32} />
-              </div>
-              <h3>Fonoaudiologia</h3>
-              <p>Avaliação e intervenção em distúrbios da comunicação, linguagem, fala e motricidade orofacial.</p>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>Agendar</a>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon">
-                <HeartHandshake size={32} />
-              </div>
-              <h3>Intervenção ABA</h3>
-              <p>Abordagem baseada em evidências para o desenvolvimento de habilidades sociais, comunicativas e acadêmicas.</p>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>Agendar</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Para Quem É */}
-      <section id="para-quem" className="section target-audience">
-        <div className="container audience-grid">
-          <div>
-            <h2 className="section-title" style={{ textAlign: 'left' }}>Para quem é a Amar-TEA?</h2>
-            <p className="section-subtitle" style={{ textAlign: 'left', margin: '0 0 2rem 0' }}>
-              Nosso espaço foi cuidadosamente planejado para acolher e desenvolver:
-            </p>
-            <div className="audience-list">
-              <div className="audience-item">
-                <Heart className="audience-icon" size={28} />
-                <h4>Crianças com Transtorno do Espectro Autista (TEA)</h4>
-              </div>
-              <div className="audience-item">
-                <Heart className="audience-icon" size={28} />
-                <h4>Crianças com atraso no desenvolvimento</h4>
-              </div>
-              <div className="audience-item">
-                <Heart className="audience-icon" size={28} />
-                <h4>Crianças com dificuldades de comunicação e aprendizado</h4>
-              </div>
-              <div className="audience-item">
-                <Heart className="audience-icon" size={28} />
-                <h4>Famílias que buscam apoio, orientação e acolhimento</h4>
-              </div>
-            </div>
-          </div>
-          <div className="about-image">
-            <Image 
-              src="/for_whom.png" 
-              alt="Mãe e criança" 
-              width={600} 
-              height={500} 
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Entendendo as Siglas */}
-      <section id="glossario" className="section glossary">
-        <div className="container">
-          <h2 className="section-title">Entendendo as Siglas</h2>
-          <p className="section-subtitle">
-            O universo do neurodesenvolvimento tem muitos termos técnicos. 
-            Preparamos um guia rápido e didático para ajudar você a compreender as principais siglas:
-          </p>
-          <div className="glossary-grid">
-            <div className="glossary-card">
-              <div className="glossary-abbr">TEA</div>
-              <h4 className="glossary-title">Transtorno do Espectro Autista</h4>
-            </div>
-            <div className="glossary-card">
-              <div className="glossary-abbr">TDAH</div>
-              <h4 className="glossary-title">Transtorno do Déficit de Atenção com Hiperatividade</h4>
-            </div>
-            <div className="glossary-card">
-              <div className="glossary-abbr">TOD</div>
-              <h4 className="glossary-title">Transtorno Opositor Desafiador</h4>
-            </div>
-            <div className="glossary-card">
-              <div className="glossary-abbr">TPAC</div>
-              <h4 className="glossary-title">Transtorno do Processamento Auditivo Central</h4>
-            </div>
-            <div className="glossary-card">
-              <div className="glossary-abbr">TAG</div>
-              <h4 className="glossary-title">Transtorno de Ansiedade Generalizada</h4>
-            </div>
-            <div className="glossary-card">
-              <div className="glossary-abbr">TOC</div>
-              <h4 className="glossary-title">Transtorno Obsessivo Compulsivo</h4>
-            </div>
-            <div className="glossary-card">
-              <div className="glossary-abbr">TDL</div>
-              <h4 className="glossary-title">Transtorno do Desenvolvimento de Linguagem</h4>
-            </div>
-            <div className="glossary-card">
-              <div className="glossary-abbr">TPS</div>
-              <h4 className="glossary-title">Transtorno do Processamento Sensorial</h4>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Como Funciona */}
-      <section id="como-funciona" className="section steps">
-        <div className="container">
-          <h2 className="section-title">Como Funciona</h2>
-          <p className="section-subtitle">Um processo simples e transparente para iniciar o cuidado terapêutico.</p>
-          <div className="steps-grid">
-            <div className="step-card">
-              <div className="step-number">1</div>
-              <h4>Contato Inicial</h4>
-              <p>Fale conosco pelo WhatsApp e tire suas primeiras dúvidas com nossa equipe.</p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">2</div>
-              <h4>Avaliação Inicial</h4>
-              <p>Uma escuta atenta para compreender as necessidades e histórico familiar.</p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">3</div>
-              <h4>Plano Personalizado</h4>
-              <p>Desenvolvemos um Projeto Terapêutico Singular focado em objetivos claros.</p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">4</div>
-              <h4>Acompanhamento</h4>
-              <p>Sessões contínuas, reavaliações e feedback constante com a família.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Instagram Feed */}
-      <section className="section instagram-feed">
-        <div className="container">
-          <h2 className="section-title">Siga-nos no Instagram</h2>
-          <p className="section-subtitle">
-            Acompanhe nosso dia a dia, dicas e conteúdos sobre desenvolvimento e cuidado terapêutico.
-          </p>
-          <div style={{ textAlign: 'center' }}>
-            <a
-              href="https://instagram.com/clinicamartea"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="instagram-handle"
-            >
-              📷 @clinicamartea
-            </a>
-          </div>
-          <div className="instagram-loading-bar" title="Carregando publicações recentes..."></div>
-          <div className="instagram-grid">
-            {[
-              { src: "/insta1.png", likes: "47", caption: "Nosso espaço de acolhimento 💚" },
-              { src: "/insta2.png", likes: "83", caption: "Cada conquista é única 🧩" },
-              { src: "/insta3.png", likes: "61", caption: "Terapia com amor e dedicação" },
-              { src: "/insta4.png", likes: "95", caption: "Família faz parte do processo ❤️" },
-              { src: "/insta5.png", likes: "72", caption: "Amar-TEA Clínica Multidisciplinar" },
-            ].map((post, i) => (
-              <a
-                key={i}
-                href="https://instagram.com/clinicamartea"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="instagram-post"
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              <a 
+                href={whatsappUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-whatsapp hover:bg-whatsapp-hover text-white px-8 py-5 rounded-full font-heading text-lg font-bold shadow-xl shadow-whatsapp/20 transition-all hover:scale-105 flex items-center gap-3 w-full sm:w-auto justify-center"
               >
-                <Image
-                  src={post.src}
-                  alt={post.caption}
-                  width={400}
-                  height={400}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-                <div className="instagram-post-overlay">
-                  <span style={{ fontSize: '1.5rem' }}>❤️</span>
-                  <span>{post.likes}</span>
-                </div>
+                <MessageCircle size={24} />
+                Falar com especialista no WhatsApp
               </a>
+              <div className="flex flex-col text-sm text-text-muted">
+                <span className="flex items-center gap-1"><Zap size={14} className="text-secondary" /> Resposta rápida</span>
+                <span className="flex items-center gap-1"><Users size={14} className="text-primary" /> Atendimento humanizado</span>
+                <span className="flex items-center gap-1"><Star size={14} className="text-yellow-500" /> Primeira orientação</span>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative lg:block hidden"
+          >
+            <div className="relative z-20 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
+              <Image 
+                src="/hero2.png" 
+                alt="Desenvolvimento Infantil Amar-TEA" 
+                width={800} 
+                height={600} 
+                className="w-full h-auto object-cover"
+                priority
+              />
+            </div>
+            {/* Decorative blobs */}
+            <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10 animate-pulse" />
+            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-secondary/20 rounded-full blur-3xl -z-10 animate-pulse delay-1000" />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. BLOCO DE IDENTIFICAÇÃO (DOR) */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <motion.div {...fadeIn} className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Você tem percebido isso no seu filho?</h2>
+              <p className="text-xl text-text-muted">Sinais que podem indicar a necessidade de um acompanhamento especializado.</p>
+            </motion.div>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              {[
+                "Não responde quando é chamado",
+                "Fala pouco ou não fala",
+                "Evita contato visual",
+                "Tem crises ou irritação constante",
+                "A escola já sinalizou preocupação",
+                "Dificuldade em interagir com outras crianças"
+              ].map((item, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-center gap-4 p-6 rounded-2xl bg-secondary-bg/30 border border-secondary/10"
+                >
+                  <div className="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 size={20} />
+                  </div>
+                  <span className="text-lg font-medium text-text-main">{item}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div {...fadeIn} className="text-center">
+              <p className="text-2xl font-bold text-secondary mb-8">"Quanto antes agir, melhores são os resultados."</p>
+              <a href={whatsappUrl} className="inline-flex items-center gap-2 text-primary-dark font-bold text-lg hover:underline decoration-2 underline-offset-4">
+                Quero conversar sobre meu filho <ArrowRight size={20} />
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. AUTORIDADE */}
+      <section className="section-padding bg-primary-bg/30">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div {...fadeIn}>
+              <h2 className="text-3xl md:text-5xl font-bold mb-8">Especialistas em desenvolvimento infantil</h2>
+              <p className="text-lg text-text-muted mb-6 leading-relaxed">
+                Somos uma clínica multidisciplinar focada no desenvolvimento integral de crianças. Nossa equipe é composta por profissionais apaixonados e altamente qualificados.
+              </p>
+              <p className="text-lg text-text-muted mb-8 leading-relaxed">
+                Criamos planos personalizados para cada paciente, respeitando o tempo e as particularidades de cada criança, sempre envolvendo a família em todas as etapas do processo.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="p-4 bg-white rounded-xl shadow-sm">
+                  <div className="text-3xl font-bold text-primary mb-1">+500</div>
+                  <div className="text-sm text-text-muted font-medium">Famílias atendidas</div>
+                </div>
+                <div className="p-4 bg-white rounded-xl shadow-sm">
+                  <div className="text-3xl font-bold text-secondary mb-1">100%</div>
+                  <div className="text-sm text-text-muted font-medium">Plano individualizado</div>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div {...fadeIn} className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="rounded-3xl overflow-hidden shadow-lg aspect-[3/4]">
+                  <Image src="/about.png" alt="Equipe Amar-TEA" width={400} height={530} className="w-full h-full object-cover" />
+                </div>
+                <div className="rounded-3xl overflow-hidden shadow-lg aspect-square bg-secondary p-8 flex items-center justify-center text-white text-center">
+                   <p className="font-heading font-bold text-xl">Ambiente acolhedor e lúdico</p>
+                </div>
+              </div>
+              <div className="space-y-4 pt-8">
+                <div className="rounded-3xl overflow-hidden shadow-lg aspect-square">
+                  <Image src="/insta2.png" alt="Ambiente Real" width={400} height={400} className="w-full h-full object-cover" />
+                </div>
+                <div className="rounded-3xl overflow-hidden shadow-lg aspect-[3/4]">
+                   <Image src="/insta5.png" alt="Cuidado" width={400} height={530} className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. SOLUÇÃO (SERVIÇOS) */}
+      <section className="section-padding bg-white">
+        <div className="container-custom text-center mb-16">
+          <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-bold mb-6">Como ajudamos seu filho a evoluir</motion.h2>
+        </div>
+        <div className="container-custom grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            {
+              title: "Desenvolvimento da fala",
+              desc: "Ajudamos seu filho a se comunicar melhor através de técnicas modernas de fonoaudiologia.",
+              icon: <MessageCircle className="text-primary" size={32} />
+            },
+            {
+              title: "Comportamento e socialização",
+              desc: "Trabalhamos interação e controle emocional para uma vida social mais saudável.",
+              icon: <Users className="text-secondary" size={32} />
+            },
+            {
+              title: "Atendimento para TEA",
+              desc: "Acompanhamento especializado com protocolos baseados em ciência (ABA).",
+              icon: <CheckCircle2 className="text-accent" size={32} />
+            },
+            {
+              title: "Apoio para pais",
+              desc: "Orientação prática para o dia a dia e suporte emocional para toda a família.",
+              icon: <Heart className="text-primary" size={32} />
+            }
+          ].map((service, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="p-8 rounded-[2.5rem] bg-background border border-gray-100 hover:border-primary/20 transition-all hover:shadow-xl group"
+            >
+              <div className="mb-6 p-4 bg-white rounded-2xl w-fit shadow-sm group-hover:scale-110 transition-transform">
+                {service.icon}
+              </div>
+              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+              <p className="text-text-muted">{service.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* NOVO: Entendendo as Siglas (Glossário) */}
+      <section id="glossario" className="section-padding bg-background/50">
+        <div className="container-custom">
+          <motion.div {...fadeIn} className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Entendendo as Siglas</h2>
+            <p className="text-xl text-text-muted max-w-3xl mx-auto">
+              O universo do neurodesenvolvimento tem muitos termos técnicos. 
+              Preparamos um guia rápido e didático para ajudar você a compreender as principais siglas:
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {glossaryData.map((item, i) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.05 }}
+                viewport={{ once: true }}
+              >
+                <Link 
+                  href={`/glossario/${item.id}`} 
+                  className="block p-6 md:p-8 bg-white rounded-[2rem] border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all group h-full"
+                >
+                  <div className="text-2xl md:text-3xl font-bold mb-2 font-heading" style={{ color: item.color }}>
+                    {item.abbr}
+                  </div>
+                  <h4 className="text-lg font-bold text-text-main mb-4 leading-tight group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h4>
+                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                    Saiba mais <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-            <a
-              href="https://instagram.com/clinicamartea"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
+        </div>
+      </section>
+
+      {/* 5. PROVA SOCIAL */}
+      <section className="section-padding bg-secondary-bg/20 overflow-hidden">
+        <div className="container-custom text-center mb-16">
+          <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-bold">O que os pais dizem</motion.h2>
+        </div>
+        <div className="container-custom grid md:grid-cols-3 gap-8">
+          {[
+            {
+              text: "A evolução do meu filho na fala em apenas 3 meses foi inacreditável. A equipe da Amar-TEA tem um carinho que nunca vi antes.",
+              author: "Mariana, mãe do Lucas (4 anos)",
+              avatar: "M"
+            },
+            {
+              text: "Enfim um lugar onde nos sentimos acolhidos. As orientações para os pais mudaram nossa dinâmica em casa. Hoje o Pedro é outra criança.",
+              author: "Carlos, pai do Pedro (6 anos)",
+              avatar: "C"
+            },
+            {
+              text: "O diagnóstico de autismo foi um susto, mas a Amar-TEA nos mostrou o caminho. Hoje vejo meu filho conquistando autonomia a cada dia.",
+              author: "Ana, mãe do Gabriel (5 anos)",
+              avatar: "A"
+            }
+          ].map((item, i) => (
+            <motion.div 
+              key={i}
+              {...fadeIn}
+              className="bg-white p-10 rounded-[2.5rem] shadow-sm relative"
             >
-              Ver mais no Instagram
-            </a>
+              <div className="flex gap-1 text-yellow-400 mb-6">
+                {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
+              </div>
+              <p className="text-lg text-text-main italic mb-8">"{item.text}"</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold">{item.avatar}</div>
+                <span className="font-bold text-text-main">{item.author}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* 6. COMO FUNCIONA */}
+      <section className="section-padding bg-white">
+        <div className="container-custom text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Como começar</h2>
+          <p className="text-xl text-text-muted">Um processo simples para transformar o futuro do seu filho.</p>
+        </div>
+        <div className="container-custom grid md:grid-cols-4 gap-8">
+          {[
+            { n: "1", title: "Clique no botão WhatsApp", desc: "Inicie uma conversa rápida com nossa equipe." },
+            { n: "2", title: "Fale com nossa equipe", desc: "Tire suas dúvidas e receba uma primeira orientação." },
+            { n: "3", title: "Agende avaliação", desc: "Escolha o melhor horário para uma análise detalhada." },
+            { n: "4", title: "Inicie acompanhamento", desc: "Começamos o plano de desenvolvimento do seu filho." }
+          ].map((step, i) => (
+            <div key={i} className="relative text-center">
+              <div className="w-16 h-16 rounded-full bg-primary text-white text-2xl font-bold flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/20 relative z-10">
+                {step.n}
+              </div>
+              <h4 className="text-xl font-bold mb-3">{step.title}</h4>
+              <p className="text-text-muted">{step.desc}</p>
+              {i < 3 && <div className="hidden lg:block absolute top-8 left-[calc(50%+2rem)] w-full h-[2px] bg-primary/20 -z-0" />}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 7. QUEBRA DE OBJEÇÃO (FAQ) */}
+      <section className="section-padding bg-background">
+        <div className="container-custom max-w-3xl">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Ainda com dúvidas?</h2>
+          <div className="space-y-4">
+            {faqData.map((faq, i) => (
+              <div key={i} className="bg-white rounded-3xl overflow-hidden border border-gray-100">
+                <button 
+                  onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+                  className="w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-text-main"
+                >
+                  {faq.q}
+                  <ChevronDown className={`transition-transform ${activeFaq === i ? 'rotate-180' : ''}`} />
+                </button>
+                {activeFaq === i && (
+                  <div className="px-8 pb-8 text-text-muted leading-relaxed">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Depoimentos */}
-      <section className="section testimonials">
-        <div className="container">
-          <h2 className="section-title">O Que Dizem as Famílias</h2>
-          <p className="section-subtitle">Histórias de evolução e cuidado na Clínica Amar-TEA.</p>
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <Quote className="quote-icon" size={48} />
-              <p className="testimonial-text">
-                "Desde que começamos o acompanhamento na Amar-TEA, meu filho teve uma evolução incrível na fala. A equipe é muito acolhedora e nos sentimos em casa."
-              </p>
-              <div className="testimonial-author">
-                <div className="author-avatar">M</div>
-                <div className="author-info">
-                  <h4>Mariana S.</h4>
-                  <p>Mãe de paciente da Fonoaudiologia</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="testimonial-card">
-              <Quote className="quote-icon" size={48} />
-              <p className="testimonial-text">
-                "Encontramos na clínica não só excelentes profissionais, mas uma rede de apoio. As terapias integradas fizeram toda a diferença no desenvolvimento do João."
-              </p>
-              <div className="testimonial-author">
-                <div className="author-avatar">C</div>
-                <div className="author-info">
-                  <h4>Carlos M.</h4>
-                  <p>Pai de paciente do programa ABA</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="testimonial-card">
-              <Quote className="quote-icon" size={48} />
-              <p className="testimonial-text">
-                "O cuidado e o olhar humano da equipe nos deram segurança. A Terapia Ocupacional ajudou muito na autonomia da minha filha em casa e na escola."
-              </p>
-              <div className="testimonial-author">
-                <div className="author-avatar">A</div>
-                <div className="author-info">
-                  <h4>Ana L.</h4>
-                  <p>Mãe de paciente da T.O.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* 8. CTA INTERMEDIÁRIO */}
+      <section className="py-20 bg-primary-dark">
+        <div className="container-custom text-center">
+          <motion.div {...fadeIn}>
+             <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">Não deixe para depois. O tempo é o melhor aliado do seu filho.</h2>
+             <a 
+                href={whatsappUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex bg-white text-primary-dark px-10 py-5 rounded-full font-heading text-xl font-bold shadow-2xl transition-all hover:scale-105"
+              >
+                Agendar avaliação agora
+              </a>
+          </motion.div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta">
-        <div className="container">
-          <h2>Pronto para iniciar essa jornada?</h2>
-          <p>
-            Nossa equipe está preparada para acolher você e sua família. 
-            Agende uma avaliação e conheça de perto o nosso trabalho.
-          </p>
-          <a href="#agendamento" className="btn btn-whatsapp" style={{ padding: '1rem 2rem', fontSize: '1.25rem', backgroundColor: 'white', color: 'var(--primary-dark)' }}>
-            Preencher Formulário de Avaliação
-          </a>
-        </div>
-      </section>
-
-      {/* Formulário de Agendamento */}
-      <section id="agendamento" className="section" style={{ backgroundColor: 'var(--secondary-bg)' }}>
-        <div className="container">
-          <h2 className="section-title">Formulário de Pré-Agendamento</h2>
-          <p className="section-subtitle">
-            Preencha os dados abaixo para que nossa equipe conheça melhor o seu caso antes do nosso contato.
-          </p>
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            width: '100%', 
-            maxWidth: '800px',
-            margin: '0 auto', 
-            overflow: 'hidden', 
-            borderRadius: '1.5rem', 
-            boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
-            backgroundColor: 'white'
-          }}>
-            <iframe 
-              src="https://docs.google.com/forms/d/e/1FAIpQLSdPJq-W46vo9nEelDrgCe6n4paKrXLd1eWj2wZVEKhtbgiQ4A/viewform?embedded=true" 
-              width="100%" 
-              height="850" 
-              frameBorder="0" 
-              marginHeight={0} 
-              marginWidth={0}
-            >
-              Carregando…
-            </iframe>
-          </div>
-        </div>
-      </section>
-
-      {/* Localização e Footer */}
-      <section className="section location">
-        <div className="container">
-          <div className="location-wrapper">
-            <div className="location-info">
-              <h3>Onde Estamos</h3>
-              <div className="contact-item">
-                <MapPin className="icon" size={24} />
-                <div>
-                  <strong>Endereço</strong>
-                  <p>Rua Antônio Renzi Primo, 121 - Vila Costa<br/>Suzano - SP</p>
+      {/* 9. LOCALIZAÇÃO */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center bg-accent-bg/30 p-8 md:p-16 rounded-[3rem]">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Onde estamos</h2>
+              <p className="text-xl text-text-muted mb-8">Atendemos Suzano e toda a região do Alto Tietê com facilidade de acesso.</p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <MapPin className="text-primary mt-1" />
+                  <div>
+                    <strong className="block text-text-main">Endereço</strong>
+                    <p className="text-text-muted">Rua Antônio Renzi Primo, 121 - Vila Costa<br/>Suzano - SP</p>
+                  </div>
                 </div>
-              </div>
-              <div className="contact-item">
-                <Phone className="icon" size={24} />
-                <div>
-                  <strong>Telefone / WhatsApp</strong>
-                  <p>(11) 94033-1432</p>
-                </div>
-              </div>
-              <div className="contact-item">
-                <Mail className="icon" size={24} />
-                <div>
-                  <strong>E-mail</strong>
-                  <p>Contato@Amartea.Com.Br</p>
+                <div className="flex items-center gap-4">
+                  <Phone className="text-primary" />
+                  <div>
+                    <strong className="block text-text-main">WhatsApp</strong>
+                    <p className="text-text-muted">(11) 94033-1432</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="map-container">
-              <iframe 
+            <div className="rounded-3xl overflow-hidden h-[300px] md:h-[400px] shadow-inner bg-gray-200">
+               <iframe 
                 src="https://maps.google.com/maps?q=Rua+Ant%C3%B4nio+Renzi+Primo,+121+-+Vila+Costa,+Suzano+-+SP&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
                 allowFullScreen={false} 
                 loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            <div className="footer-about">
-              <div className="logo" style={{ color: 'white', display: 'flex', alignItems: 'center' }}>
-                <Image src="/logo.png" alt="Logo Amar-TEA" width={80} height={80} style={{ objectFit: 'contain' }} />
-              </div>
-              <p>Clínica multidisciplinar com foco terapêutico e desenvolvimento, oferecendo um cuidado humano e integrado.</p>
-            </div>
-            <div className="footer-links">
-              <h4>Navegação</h4>
-              <ul>
-                <li><a href="#sobre">Sobre a Clínica</a></li>
-                <li><a href="#especialidades">Especialidades</a></li>
-                <li><a href="#para-quem">Para Quem É</a></li>
-                <li><a href="#como-funciona">Como Funciona</a></li>
-              </ul>
-            </div>
-            <div className="footer-links">
-              <h4>Redes Sociais</h4>
-              <ul>
-                <li>
-                  <a href="https://instagram.com/clinicamartea" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    Instagram (@Clinicamartea)
-                  </a>
-                </li>
-                <li>
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <MessageCircle size={20} /> WhatsApp
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>&copy; {new Date().getFullYear()} Clínica Amar-TEA. Todos os direitos reservados.</p>
-          </div>
+      {/* 10. CTA FINAL */}
+      <section className="section-padding bg-gradient-to-b from-white to-primary-bg text-center">
+        <div className="container-custom max-w-4xl">
+          <motion.div {...fadeIn}>
+            <h2 className="text-4xl md:text-6xl font-bold text-text-main mb-8 leading-tight">
+              Quanto antes começar, melhor será o desenvolvimento do seu filho
+            </h2>
+            <p className="text-xl text-text-muted mb-12">
+              Não perca a janela de oportunidade do desenvolvimento infantil. Nossa equipe está pronta para acolher sua família hoje mesmo.
+            </p>
+            <a 
+              href={whatsappUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="bg-whatsapp hover:bg-whatsapp-hover text-white px-10 py-6 rounded-full font-heading text-2xl font-bold shadow-2xl shadow-whatsapp/30 transition-all hover:scale-110 flex items-center gap-4 mx-auto w-fit"
+            >
+              <MessageCircle size={32} />
+              Agendar pelo WhatsApp
+            </a>
+          </motion.div>
         </div>
-      </footer>
+      </section>
 
-      {/* WhatsApp Fix Button */}
-      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="floating-whatsapp" aria-label="Falar no WhatsApp">
-        <MessageCircle size={32} />
-      </a>
-    </main>
+      {/* Meta Pixel and Structure Placeholder */}
+      <script dangerouslySetInnerHTML={{ __html: `
+        // Exemplo de rastreamento de evento de conversão
+        function trackWhatsAppClick() {
+          if (typeof fbq !== 'undefined') {
+            fbq('track', 'Contact');
+          }
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {'send_to': 'AW-CONVERSION_ID'});
+          }
+        }
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+          link.addEventListener('click', trackWhatsAppClick);
+        });
+      `}} />
+    </div>
   );
 }
