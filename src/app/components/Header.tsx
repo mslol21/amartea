@@ -48,7 +48,7 @@ export default function Header() {
       }`}>
         <div className="container-custom flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Logo Amar-TEA" width={60} height={60} className="w-auto h-12 md:h-16" />
+            <Image src="/logo.png" alt="Logo Amar-TEA" width={60} height={60} className="w-auto h-10 md:h-14" />
           </Link>
           
           {/* Desktop Navigation */}
@@ -69,7 +69,7 @@ export default function Header() {
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="bg-primary hover:bg-primary-dark text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-heading font-bold text-xs md:text-base shadow-lg transition-all active:scale-95 whitespace-nowrap"
+              className="hidden sm:block bg-primary hover:bg-primary-dark text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-heading font-bold text-xs md:text-base shadow-lg transition-all active:scale-95 whitespace-nowrap"
             >
               Agendar Avaliação
             </a>

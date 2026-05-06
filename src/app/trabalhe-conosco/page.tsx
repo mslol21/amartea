@@ -64,30 +64,30 @@ export default function WorkWithUs() {
         </div>
 
         {/* Vagas e Envio de Currículo */}
-        <div className="bg-primary-dark rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden">
+        <div className="bg-primary-dark rounded-[2rem] md:rounded-[3rem] p-6 md:p-16 text-white relative overflow-hidden">
           <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">Como se candidatar?</h2>
-              <p className="text-xl text-primary-bg mb-10">
+            <div className="mb-12 lg:mb-0">
+              <h2 className="text-2xl md:text-4xl font-bold mb-6">Como se candidatar?</h2>
+              <p className="text-lg text-primary-bg mb-8">
                 Mesmo que não tenhamos uma vaga aberta para sua especialidade no momento, adoraríamos conhecer seu perfil para futuras oportunidades.
               </p>
               
-              <ul className="space-y-4 mb-10">
+              <ul className="space-y-4 mb-0 lg:mb-10">
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="text-secondary" />
-                  <span>Fonoaudiologia (Especialista em TEA)</span>
+                  <CheckCircle2 size={20} className="text-secondary shrink-0" />
+                  <span className="text-base md:text-lg">Fonoaudiologia (Especialista em TEA)</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="text-secondary" />
-                  <span>Psicologia (Abordagem ABA ou TCC)</span>
+                  <CheckCircle2 size={20} className="text-secondary shrink-0" />
+                  <span className="text-base md:text-lg">Psicologia (Abordagem ABA ou TCC)</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="text-secondary" />
-                  <span>Terapia Ocupacional</span>
+                  <CheckCircle2 size={20} className="text-secondary shrink-0" />
+                  <span className="text-base md:text-lg">Terapia Ocupacional</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="text-secondary" />
-                  <span>Recepcionista e Apoio Administrativo</span>
+                  <CheckCircle2 size={20} className="text-secondary shrink-0" />
+                  <span className="text-base md:text-lg">Recepcionista e Apoio Administrativo</span>
                 </li>
               </ul>
             </div>
@@ -100,14 +100,14 @@ export default function WorkWithUs() {
               
               <a 
                 href={`mailto:${email}`}
-                className="flex items-center gap-4 p-6 rounded-2xl bg-primary-bg border border-primary/10 hover:border-primary/30 transition-all group"
+                className="flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl bg-primary-bg border border-primary/10 hover:border-primary/30 transition-all group overflow-hidden"
               >
-                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
                   <Mail size={24} />
                 </div>
-                <div>
-                  <span className="block text-sm text-text-muted font-bold uppercase tracking-wider">E-mail para contato</span>
-                  <span className="text-lg font-bold text-primary">{email}</span>
+                <div className="text-center sm:text-left overflow-hidden">
+                  <span className="block text-xs text-text-muted font-bold uppercase tracking-wider">E-mail para contato</span>
+                  <span className="text-sm md:text-base lg:text-lg font-bold text-primary break-all">{email}</span>
                 </div>
               </a>
 
