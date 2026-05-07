@@ -13,7 +13,11 @@ import {
   ShieldCheck,
   Zap,
   Users,
-  Heart
+  Heart,
+  Music,
+  Brain,
+  Salad,
+  Activity
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -196,50 +200,93 @@ export default function LandingPage() {
             Oferecemos uma abordagem multidisciplinar completa para apoiar o desenvolvimento do seu filho em todas as áreas.
           </p>
         </div>
-        <div className="container-custom grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="container-custom grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
               title: "Fonoaudiologia",
-              desc: "Especializada em linguagem, fala, mastigação e deglutição, ajudando a criança a se comunicar com clareza e segurança.",
-              icon: <MessageCircle className="text-primary" size={32} />
+              desc: "Linguagem, fala, mastigação e deglutição — ajudando a criança a se comunicar com clareza e segurança.",
+              icon: <MessageCircle className="text-primary" size={32} />,
+              color: "bg-primary/10"
             },
             {
-              title: "Psicologia Infantil",
-              desc: "Apoio emocional e comportamental para lidar com ansiedade, medos, regulação emocional e desenvolvimento social.",
-              icon: <Users className="text-secondary" size={32} />
+              title: "Psicologia",
+              desc: "Apoio emocional e comportamental para regulação emocional, ansiedade, medos e desenvolvimento social.",
+              icon: <Brain className="text-secondary" size={32} />,
+              color: "bg-secondary/10"
             },
             {
               title: "Terapia Ocupacional",
-              desc: "Foco na autonomia das Atividades de Vida Diária (AVDs), integração sensorial e coordenação motora fina.",
-              icon: <Zap className="text-accent" size={32} />
-            },
-            {
-              title: "Intervenção ABA",
-              desc: "Análise do Comportamento Aplicada, padrão ouro para o tratamento do autismo, focada em habilidades sociais e redução de comportamentos desafiadores.",
-              icon: <ShieldCheck className="text-primary" size={32} />
+              desc: "Autonomia nas AVDs, integração sensorial e coordenação motora fina para maior independência.",
+              icon: <Zap className="text-accent" size={32} />,
+              color: "bg-accent/10"
             },
             {
               title: "Psicopedagogia",
-              desc: "Intervenção focada nos processos de aprendizagem, dificuldades escolares e estratégias de estudo personalizadas.",
-              icon: <Star className="text-secondary" size={32} />
+              desc: "Intervenção nos processos de aprendizagem, dificuldades escolares e estratégias de estudo personalizadas.",
+              icon: <Star className="text-primary" size={32} />,
+              color: "bg-primary/10"
             },
             {
-              title: "Apoio à Família",
-              desc: "Orientação parental constante para que o tratamento continue de forma eficaz e harmoniosa dentro de casa.",
-              icon: <Heart className="text-primary" size={32} />
+              title: "Psicomotricidade",
+              desc: "Desenvolvimento da consciência corporal, coordenação motora global e integração sensório-motora.",
+              icon: <Activity className="text-secondary" size={32} />,
+              color: "bg-secondary/10"
+            },
+            {
+              title: "Nutrição",
+              desc: "Orientação nutricional especializada para crianças com seletividade alimentar e necessidades específicas.",
+              icon: <Salad className="text-accent" size={32} />,
+              color: "bg-accent/10"
+            },
+            {
+              title: "Fisioterapia",
+              desc: "Melhora do tônus muscular, postura, equilíbrio e desenvolvimento motor global da criança.",
+              icon: <ShieldCheck className="text-primary" size={32} />,
+              color: "bg-primary/10"
+            },
+            {
+              title: "Musicoterapia",
+              desc: "Uso terapêutico da música para promover comunicação, expressão emocional e socialização.",
+              icon: <Music className="text-secondary" size={32} />,
+              color: "bg-secondary/10"
             }
           ].map((service, i) => (
             <div 
               key={i}
-              className="p-8 rounded-[2.5rem] bg-background border border-gray-100 hover:border-primary/10 transition-all group"
+              className="p-8 rounded-[2.5rem] bg-background border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all group"
             >
-              <div className="mb-6 p-4 bg-white rounded-2xl w-fit shadow-sm">
+              <div className={`mb-6 p-4 rounded-2xl w-fit ${service.color}`}>
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold mb-4">{service.title}</h3>
               <p className="text-text-muted leading-relaxed text-sm">{service.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* CONVÊNIOS ACEITOS */}
+      <section className="py-12 bg-soft-mint/20 border-y border-primary/10">
+        <div className="container-custom">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+            <div className="flex items-center gap-3">
+              <ShieldCheck className="text-primary" size={28} />
+              <span className="text-lg font-bold text-text-main">Convênios aceitos:</span>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              {["Via Saúde", "Via Net"].map((convenio) => (
+                <div
+                  key={convenio}
+                  className="px-8 py-4 bg-white rounded-2xl shadow-sm border border-primary/10 font-bold text-primary-dark text-lg hover:shadow-md transition-all"
+                >
+                  {convenio}
+                </div>
+              ))}
+              <div className="px-8 py-4 bg-white rounded-2xl shadow-sm border border-dashed border-primary/20 font-medium text-text-muted text-base">
+                + Consulte outros convênios
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
