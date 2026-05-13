@@ -54,7 +54,7 @@ export default function GlossaryDetailPage() {
             <ArrowLeft size={20} /> Voltar para o glossário
           </Link>
 
-          <div className="bg-white rounded-[3rem] p-8 md:p-16 shadow-2xl shadow-black/5 border border-black/5 relative overflow-hidden">
+          <div className="bg-surface rounded-[3rem] p-8 md:p-16 shadow-2xl shadow-black/5 border border-primary/5 relative overflow-hidden">
             {/* Decoration Background */}
             <div 
               className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10"
@@ -86,51 +86,66 @@ export default function GlossaryDetailPage() {
                 {item.description}
               </p>
 
-              <hr className="border-gray-100 mb-12" />
+              <hr className="border-primary/5 mb-12" />
 
               <div className="prose prose-lg max-w-none text-text-main">
                 {item.content.split('\n').map((line: string, i: number) => {
                   if (line.trim().startsWith('###')) {
                     return (
-                      <h3 key={i} className="text-xl md:text-2xl font-bold mt-12 mb-6 font-heading" style={{ color: item.color }}>
-                        {line.replace('###', '')}
+                      <h3 key={i} className="text-xl md:text-3xl font-bold mt-12 mb-6 font-heading flex items-center gap-3" style={{ color: item.color }}>
+                        <div className="w-8 h-1 bg-current opacity-30 rounded-full" /> {line.replace('###', '')}
                       </h3>
                     );
                   }
                   if (line.trim().startsWith('-')) {
                     return (
-                      <li key={i} className="list-none relative pl-8 mb-4 text-base md:text-lg">
-                        <span className="absolute left-0 font-bold" style={{ color: item.color }}>•</span>
+                      <li key={i} className="list-none relative pl-8 mb-4 text-base md:text-lg leading-relaxed group">
+                        <span className="absolute left-0 font-bold transition-transform group-hover:scale-125" style={{ color: item.color }}>•</span>
                         {line.replace('-', '').trim()}
                       </li>
                     );
                   }
                   if (line.trim().startsWith('1.') || line.trim().startsWith('2.') || line.trim().startsWith('3.')) {
+                    const [label, ...rest] = line.split(':');
                     return (
-                      <div key={i} className="mb-8 p-6 md:p-8 bg-background rounded-2xl border-l-4" style={{ borderColor: item.color }}>
-                        <strong className="text-lg md:text-xl block mb-2">{line.split(':')[0]}</strong>
-                        <span className="text-base md:text-lg text-text-muted leading-relaxed">{line.split(':')[1]}</span>
+                      <div key={i} className="mb-8 p-8 bg-background/50 rounded-[2rem] border-l-8 shadow-sm" style={{ borderColor: item.color }}>
+                        <strong className="text-xl md:text-2xl block mb-3 font-heading" style={{ color: item.color }}>{label}</strong>
+                        <span className="text-base md:text-lg text-text-muted leading-relaxed block">{rest.join(':')}</span>
                       </div>
                     );
                   }
                   if (line.trim() === "") return null;
-                  return <p key={i} className="mb-6 text-base md:text-lg leading-relaxed">{line}</p>;
+                  
+                  // Handle bold text in paragraphs
+                  const parts = line.split(/(\*\*.*?\*\*)/g);
+                  return (
+                    <p key={i} className="mb-6 text-base md:text-lg leading-relaxed">
+                      {parts.map((part, index) => {
+                        if (part.startsWith('**') && part.endsWith('**')) {
+                          return <strong key={index} className="font-bold text-text-main">{part.slice(2, -2)}</strong>;
+                        }
+                        return part;
+                      })}
+                    </p>
+                  );
                 })}
               </div>
 
               <div className="mt-16 p-8 md:p-12 bg-primary-bg/50 rounded-[2.5rem] flex flex-col md:flex-row items-center gap-8 md:gap-12 shadow-sm border border-primary/10">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-primary shrink-0 shadow-md">
+                <div className="w-20 h-20 bg-surface rounded-full flex items-center justify-center text-primary shrink-0 shadow-md">
                   <Heart size={40} />
                 </div>
                 <div className="flex-grow text-center md:text-left">
-                  <h4 className="text-2xl md:text-3xl font-bold mb-2 text-primary-dark font-heading">Precisa de mais informações?</h4>
-                  <p className="text-lg text-text-muted">Nossa equipe de especialistas está à disposição para oferecer o suporte e as orientações necessárias para o desenvolvimento da sua família.</p>
+                  <h4 className="text-2xl md:text-3xl font-bold mb-2 text-primary-dark font-heading">Sua dúvida é sobre {item.abbr}?</h4>
+                  <p className="text-lg text-text-muted leading-relaxed">Nossa equipe multidisciplinar pode ajudar com avaliações detalhadas e planos de reabilitação específicos para cada perfil.</p>
                 </div>
                 <a 
-                  href="/#agendamento" 
-                  className="bg-primary hover:bg-primary-dark text-white px-10 py-5 rounded-full font-bold text-xl shadow-lg transition-all active:scale-95 whitespace-nowrap"
+                  href={`https://wa.me/5511940331432?text=${encodeURIComponent(`Olá, estava lendo sobre ${item.abbr} no site e gostaria de agendar uma avaliação.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-whatsapp hover:bg-whatsapp-hover text-white px-10 py-5 rounded-full font-bold text-xl shadow-lg transition-all hover:scale-105 active:scale-95 whitespace-nowrap flex items-center gap-2"
                 >
-                  Falar com Especialista
+                  <MessageSquare size={24} /> Falar com Especialista
                 </a>
               </div>
             </div>

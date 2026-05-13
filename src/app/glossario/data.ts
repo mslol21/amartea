@@ -16,7 +16,7 @@ export const glossaryData = [
       - Sensibilidade sensorial (sons, luzes ou texturas).
       - Necessidade de rotinas bem estabelecidas.
     `,
-    color: "#8da399"
+    color: "#859b7b"
   },
   {
     id: "tdah",
@@ -28,10 +28,10 @@ export const glossaryData = [
       
       ### Tipos de TDAH:
       1. **Predominantemente Desatento**: Dificuldade de foco, organização e memória de curto prazo.
-      2. **Predominantemente Hiperativo-Impulsivo**: Inquietude motora, dificuldade em esperar a vez e agir sem pensar.
+      2. **Predominantemente Hyperativo-Impulsivo**: Inquietude motora, dificuldade em esperar a vez e agir sem pensar.
       3. **Combinado**: Apresenta características de ambos os tipos anteriores.
     `,
-    color: "#c86b5e"
+    color: "#d97a61"
   },
   {
     id: "tod",
@@ -49,7 +49,7 @@ export const glossaryData = [
       - Recusa ativa em cumprir regras ou pedidos.
       - Comportamento deliberadamente irritante para com os outros.
     `,
-    color: "#6b7a8f"
+    color: "#698b9e"
   },
   {
     id: "tpac",
@@ -65,7 +65,7 @@ export const glossaryData = [
       - Frequentemente pede para repetir o que foi dito ("O quê?").
       - Problemas de memória auditiva e atenção.
     `,
-    color: "#8da399"
+    color: "#859b7b"
   },
   {
     id: "tag",
@@ -81,7 +81,7 @@ export const glossaryData = [
       - Dificuldade para dormir ou manter o sono.
       - Sensação de estar "no limite".
     `,
-    color: "#c86b5e"
+    color: "#d6a863"
   },
   {
     id: "toc",
@@ -95,7 +95,7 @@ export const glossaryData = [
       - **Obsessão**: Medo excessivo de germes ou necessidade de simetria.
       - **Compulsão**: Lavar as mãos repetidamente ou organizar objetos de forma específica.
     `,
-    color: "#6b7a8f"
+    color: "#698b9e"
   },
   {
     id: "tdl",
@@ -111,7 +111,7 @@ export const glossaryData = [
       - Dificuldade em contar histórias ou explicar eventos.
       - Pode afetar a alfabetização e a socialização.
     `,
-    color: "#8da399"
+    color: "#859b7b"
   },
   {
     id: "tps",
@@ -125,6 +125,6 @@ export const glossaryData = [
       - **Hipersensível**: Reage exageradamente a estímulos (ex: barulho de liquidificador, etiqueta de roupa).
       - **Hipossensível**: Precisa de muito estímulo para reagir (ex: gosta de girar muito, não sente dor facilmente).
     `,
-    color: "#c86b5e"
+    color: "#d97a61"
   }
 ];
