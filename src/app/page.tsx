@@ -93,7 +93,7 @@ export default function LandingPage() {
           >
             <div className="relative z-20 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-surface">
               <Image 
-                src="/hero-specialized.png" 
+                src="/clinica.jpeg" 
                 alt="Clínica Multidisciplinar Amar-TEA" 
                 width={800} 
                 height={600} 
@@ -210,7 +210,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="rounded-3xl overflow-hidden shadow-lg aspect-[3/4]">
-                  <Image src="/about.png" alt="Equipe Amar-TEA" width={400} height={530} className="w-full h-full object-cover" />
+                  <Image src="/salasensorial.jpeg" alt="Equipe Amar-TEA" width={400} height={530} className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-3xl overflow-hidden shadow-lg aspect-square bg-secondary p-8 flex items-center justify-center text-white text-center">
                    <p className="font-heading font-bold text-xl">Ambiente acolhedor e lúdico</p>
@@ -218,10 +218,10 @@ export default function LandingPage() {
               </div>
               <div className="space-y-4 pt-8">
                 <div className="rounded-3xl overflow-hidden shadow-lg aspect-square">
-                  <Image src="/insta2.png" alt="Ambiente Real" width={400} height={400} className="w-full h-full object-cover" />
+                  <Image src="/salahabilidadessocial.jpeg" alt="Ambiente Real" width={400} height={400} className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-3xl overflow-hidden shadow-lg aspect-[3/4]">
-                   <Image src="/insta5.png" alt="Cuidado" width={400} height={530} className="w-full h-full object-cover" />
+                   <Image src="/salafisioterapia.jpeg" alt="Cuidado" width={400} height={530} className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -260,7 +260,7 @@ export default function LandingPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4 mt-8">
                   <div className="h-48 bg-soft-blue rounded-3xl overflow-hidden">
-                     <Image src="/insta2.png" alt="Terapia" width={300} height={200} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all cursor-pointer" />
+                     <Image src="/salapsicologia.jpeg" alt="Terapia" width={300} height={200} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all cursor-pointer" />
                   </div>
                   <div className="h-64 bg-primary rounded-3xl flex items-center justify-center p-8 text-white text-center shadow-lg">
                     <p className="font-bold text-xl">Integração Total entre Áreas</p>
@@ -271,7 +271,7 @@ export default function LandingPage() {
                      <p className="font-bold text-xl">Evolução Monitorada</p>
                   </div>
                   <div className="h-48 bg-soft-lavender rounded-3xl overflow-hidden">
-                     <Image src="/about.png" alt="Equipe" width={300} height={200} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all cursor-pointer" />
+                     <Image src="/salapsicopedagogia.jpeg" alt="Equipe" width={300} height={200} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all cursor-pointer" />
                   </div>
                 </div>
               </div>
@@ -295,7 +295,7 @@ export default function LandingPage() {
             Oferecemos uma abordagem multidisciplinar completa para apoiar o desenvolvimento do seu filho em todas as áreas.
           </p>
         </div>
-        <div className="container-custom grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="container-custom grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
               title: "Fonoaudiologia",
@@ -344,6 +344,12 @@ export default function LandingPage() {
               desc: "Uso de estímulos sonoros para abrir canais de comunicação e expressão onde a fala pode ser um desafio.",
               icon: <Music className="text-secondary" size={32} />,
               color: "bg-secondary/10"
+            },
+            {
+              title: "Atendimento Psicológico Convencional",
+              desc: "Acolhimento emocional e psicoterapia tradicional para o autoconhecimento, regulação emocional e suporte às famílias.",
+              icon: <Heart className="text-mustard" size={32} />,
+              color: "bg-mustard/10"
             }
           ].map((service, i) => (
             <div 
@@ -518,6 +524,39 @@ export default function LandingPage() {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NOVO: ESPAÇOS DA CLÍNICA (GALERIA) */}
+      <section id="espacos" className="section-padding bg-soft-mint/20 overflow-hidden">
+        <div className="container-custom text-center mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-text-main mb-6">Nossos Espaços</h2>
+          <p className="text-lg text-text-muted max-w-3xl mx-auto">
+            Conheça os ambientes da Amar-TEA, projetados com carinho para oferecer o máximo de conforto, segurança e acolhimento para o seu filho.
+          </p>
+        </div>
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {
+              [
+                { src: "/clinica.jpeg", alt: "Nossa Clínica" },
+                { src: "/salasensorial.jpeg", alt: "Integração Sensorial" },
+                { src: "/salafisioterapia.jpeg", alt: "Fisioterapia" },
+                { src: "/salafono.jpeg", alt: "Fonoaudiologia" },
+                { src: "/salapsicologia.jpeg", alt: "Psicologia" },
+                { src: "/salapsicopedagogia.jpeg", alt: "Psicopedagogia" },
+                { src: "/salahabilidadessocial.jpeg", alt: "Habilidades Sociais" },
+                { src: "/salanutricao.jpeg", alt: "Nutrição" },
+              ].map((img, i) => (
+                <div key={i} className="relative rounded-[2rem] overflow-hidden shadow-sm border border-primary/5 group aspect-square">
+                  <Image src={img.src} alt={img.alt} width={400} height={400} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end">
+                    <span className="text-white font-bold text-sm md:text-base drop-shadow-lg">{img.alt}</span>
+                  </div>
+                </div>
+              ))
+            }
           </div>
         </div>
       </section>
