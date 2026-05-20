@@ -69,7 +69,7 @@ export default function LandingPage() {
             </h1>
             <p className="text-lg md:text-xl text-text-muted mb-10 leading-relaxed max-w-2xl">
               Clínica de referência em reabilitação para <strong>TEA, TDAH, TOD, TAG e TPAC</strong>. 
-              Unimos ciência e afeto para transformar o futuro do seu filho através de intervenções baseadas em evidências.
+              Somos especialistas no <strong>Método ABA</strong> e também oferecemos uma estrutura completa para <strong>atendimentos terapêuticos e clínicos convencionais</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
               <a 
@@ -163,7 +163,7 @@ export default function LandingPage() {
               { id: 'tdah', label: 'TDAH', full: 'Atenção e Foco', color: 'bg-secondary' },
               { id: 'tod', label: 'TOD', full: 'Comportamento', color: 'bg-accent' },
               { id: 'tag', label: 'TAG', full: 'Ansiedade', color: 'bg-mustard' },
-              { id: 'tpac', label: 'TPAC', full: 'Auditição Central', color: 'bg-primary-light' }
+              { id: 'tpac', label: 'TPAC', full: 'Processamento Auditivo Central', color: 'bg-primary-light' }
             ].map((item) => (
               <Link 
                 key={item.id} 
@@ -292,7 +292,7 @@ export default function LandingPage() {
         <div className="container-custom text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">Nossos Serviços Especializados</h2>
           <p className="text-lg text-text-muted max-w-3xl mx-auto">
-            Oferecemos uma abordagem multidisciplinar completa para apoiar o desenvolvimento do seu filho em todas as áreas.
+            Oferecemos excelência em intervenção pelo <strong>Método ABA</strong> para neurodesenvolvimento, além de realizarmos todos os <strong>atendimentos terapêuticos convencionais</strong> para pacientes de diversas necessidades e idades.
           </p>
         </div>
         <div className="container-custom grid md:grid-cols-2 lg:grid-cols-3 gap-8">
