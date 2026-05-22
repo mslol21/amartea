@@ -28,7 +28,7 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  const whatsappNumber = "5511940331432";
+  const whatsappNumber = "551147485277";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá, vim pelo site e quero agendar uma avaliação")}`;
 
   const navLinks = [

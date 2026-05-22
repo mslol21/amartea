@@ -17,7 +17,8 @@ import {
   Music,
   Brain,
   Salad,
-  Activity
+  Activity,
+  ClipboardList
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -33,7 +34,7 @@ const fadeIn = {
 };
 
 export default function LandingPage() {
-  const whatsappNumber = "5511940331432";
+  const whatsappNumber = "551147485277";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá, vim pelo site e quero agendar uma avaliação")}`;
 
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -350,6 +351,12 @@ export default function LandingPage() {
               desc: "Acolhimento emocional e psicoterapia tradicional para o autoconhecimento, regulação emocional e suporte às famílias.",
               icon: <Heart className="text-mustard" size={32} />,
               color: "bg-mustard/10"
+            },
+            {
+              title: "Avaliação Neuropsicológica",
+              desc: "Investigação detalhada das funções cognitivas, atenção, memória e comportamento para diagnósticos e acompanhamentos precisos.",
+              icon: <ClipboardList className="text-accent" size={32} />,
+              color: "bg-accent/10"
             }
           ].map((service, i) => (
             <div 
@@ -414,25 +421,43 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CONVÊNIOS ACEITOS */}
+      {/* CONVÊNIOS E FIDELIDADE */}
       <section className="py-12 bg-soft-mint/30 border-y border-primary/10">
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
-            <div className="flex items-center gap-3">
-              <ShieldCheck className="text-primary" size={28} />
-              <span className="text-lg font-bold text-text-main">Convênios aceitos:</span>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              {["Via Saúde", "Via Net"].map((convenio) => (
-                <div
-                  key={convenio}
-                  className="px-8 py-4 bg-surface rounded-2xl shadow-sm border border-primary/10 font-bold text-primary-dark text-lg hover:shadow-md transition-all"
-                >
-                  {convenio}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            {/* Convênios */}
+            <div className="flex-1 flex flex-col xl:flex-row items-center justify-center lg:justify-start gap-6 w-full">
+              <div className="flex items-center gap-3 shrink-0">
+                <ShieldCheck className="text-primary" size={28} />
+                <span className="text-lg font-bold text-text-main">Convênios aceitos:</span>
+              </div>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                {["Via Saúde", "Via Net", "São Miguel Saúde", "Sagrada Família"].map((convenio) => (
+                  <div
+                    key={convenio}
+                    className="px-5 py-2.5 bg-surface rounded-2xl shadow-sm border border-primary/10 font-bold text-primary-dark text-sm hover:shadow-md transition-all text-center whitespace-nowrap"
+                  >
+                    {convenio}
+                  </div>
+                ))}
+                <div className="px-5 py-2.5 bg-surface/50 rounded-2xl shadow-sm border border-dashed border-primary/20 font-medium text-text-muted text-sm text-center whitespace-nowrap">
+                  + Consulte outros
                 </div>
-              ))}
-              <div className="px-8 py-4 bg-surface/50 rounded-2xl shadow-sm border border-dashed border-primary/20 font-medium text-text-muted text-base">
-                + Consulte outros convênios
+              </div>
+            </div>
+
+            {/* Cartão Fidelidade */}
+            <div className="w-full lg:w-[400px] xl:w-[450px] shrink-0 bg-gradient-to-br from-primary to-accent p-6 rounded-3xl shadow-lg text-white flex items-center gap-5 transform hover:-translate-y-1 transition-all">
+              <div className="bg-white/20 p-4 rounded-2xl shrink-0">
+                <Star size={32} className="text-mustard drop-shadow-md" fill="currentColor" />
+              </div>
+              <div>
+                <h4 className="font-bold text-lg mb-1">
+                  Cartão Fidelidade Amar-TEA
+                </h4>
+                <p className="text-sm text-white/90 leading-snug">
+                  Descontos exclusivos em <strong>todas as especialidades</strong> para pacientes da clínica.
+                </p>
               </div>
             </div>
           </div>

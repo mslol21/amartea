@@ -5,7 +5,7 @@ import Link from "next/link";
 import { MessageCircle, Camera, MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
-  const whatsappNumber = "5511940331432";
+  const whatsappNumber = "551147485277";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá, vim pelo site e quero agendar uma avaliação")}`;
 
   return (
@@ -46,7 +46,7 @@ export default function Footer() {
               <li>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/60 hover:text-white transition-colors">
                   <MessageCircle size={20} className="text-whatsapp" />
-                  (11) 94033-1432
+                  (11) 4748-5277
                 </a>
               </li>
               <li className="flex items-start gap-3 text-white/60">
