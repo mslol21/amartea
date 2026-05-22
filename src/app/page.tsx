@@ -712,7 +712,7 @@ export default function LandingPage() {
                   <Phone className="text-primary" />
                   <div>
                     <strong className="block text-text-main">WhatsApp</strong>
-                    <p className="text-text-muted">(11) 94033-1432</p>
+                    <p className="text-text-muted">(11) 4748-5277</p>
                   </div>
                 </div>
               </div>
