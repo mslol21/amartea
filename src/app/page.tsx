@@ -58,8 +58,8 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-screen bg-background">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center pt-28 bg-gradient-to-br from-[var(--color-soft-beige-light)] via-background to-soft-mint overflow-hidden">
-        <div className="absolute inset-0 bg-brand-pattern opacity-15 mix-blend-multiply pointer-events-none"></div>
+      <section className="relative min-h-[90vh] flex items-center pt-28 bg-gradient-to-br from-[var(--color-section-beige)] via-background to-[var(--color-section-green)] overflow-hidden">
+        <div className="absolute inset-0 bg-brand-pattern"></div>
         <div className="container-custom grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/80 backdrop-blur shadow-sm border border-primary/10 text-primary-dark font-medium mb-6">
@@ -111,8 +111,8 @@ export default function LandingPage() {
       </section>
 
       {/* 2. BLOCO DE IDENTIFICAÇÃO (DOR) */}
-      <section className="section-padding bg-background relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-full h-full bg-brand-pattern opacity-10 mix-blend-multiply pointer-events-none" />
+      <section className="section-padding bg-[var(--color-section-terracota)] relative overflow-hidden">
+        <div className="absolute inset-0 bg-brand-pattern"></div>
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -152,7 +152,7 @@ export default function LandingPage() {
       </section>
 
       {/* 2.5 ESPECIALIDADES FOCO */}
-      <section className="section-padding bg-soft-blue/30">
+      <section className="section-padding bg-[var(--color-section-blue)]">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">Áreas de Especialidade</h2>
@@ -188,7 +188,7 @@ export default function LandingPage() {
       </section>
 
       {/* 3. AUTORIDADE */}
-      <section id="sobre" className="section-padding bg-soft-yellow/40">
+      <section id="sobre" className="section-padding bg-[var(--color-section-caramelo)]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -233,8 +233,8 @@ export default function LandingPage() {
       </section>
 
       {/* NOVO: EQUIPE MULTIDISCIPLINAR */}
-      <section className="py-20 bg-soft-mint/20 overflow-hidden relative">
-        <div className="absolute inset-0 bg-brand-pattern opacity-15 mix-blend-multiply pointer-events-none"></div>
+      <section className="py-20 bg-[var(--color-section-green)] overflow-hidden relative">
+        <div className="absolute inset-0 bg-brand-pattern"></div>
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2">
@@ -292,7 +292,7 @@ export default function LandingPage() {
       </section>
 
       {/* 4. SOLUÇÃO (SERVIÇOS) */}
-      <section id="especialidades" className="section-padding bg-background">
+      <section id="especialidades" className="section-padding bg-[var(--color-section-beige)]">
         <div className="container-custom text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">Nossos Serviços Especializados</h2>
           <p className="text-lg text-text-muted max-w-3xl mx-auto">
@@ -377,9 +377,9 @@ export default function LandingPage() {
       </section>
 
       {/* NOVO: METODOLOGIAS */}
-      <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-[var(--color-soft-beige-light)] overflow-hidden relative">
+      <section className="section-padding bg-gradient-to-br from-[var(--color-section-green)] via-background to-[var(--color-section-blue)] overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-surface/30 skew-x-12 translate-x-1/2 z-0" />
-        <div className="absolute inset-0 bg-brand-pattern opacity-15 mix-blend-multiply z-0 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-brand-pattern z-0"></div>
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -426,7 +426,7 @@ export default function LandingPage() {
       </section>
 
       {/* CONVÊNIOS E FIDELIDADE */}
-      <section className="py-12 bg-soft-mint/30 border-y border-primary/10">
+      <section className="py-12 bg-[var(--color-section-beige)] border-y border-primary/10">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             {/* Convênios */}
@@ -469,7 +469,7 @@ export default function LandingPage() {
       </section>
 
       {/* NOVO: Entendendo as Siglas (Glossário) */}
-      <section id="glossario" className="section-padding bg-soft-blue/20">
+      <section id="glossario" className="section-padding bg-[var(--color-section-blue)]">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">Entendendo as Siglas</h2>
@@ -503,7 +503,7 @@ export default function LandingPage() {
       </section>
 
       {/* NOVO: A JORNADA DE REABILITAÇÃO */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-[var(--color-section-caramelo)]">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
@@ -558,7 +558,7 @@ export default function LandingPage() {
       </section>
 
       {/* NOVO: ESPAÇOS DA CLÍNICA (GALERIA) */}
-      <section id="espacos" className="section-padding bg-soft-mint/20 overflow-hidden">
+      <section id="espacos" className="section-padding bg-[var(--color-section-green)] overflow-hidden">
         <div className="container-custom text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold text-text-main mb-6">Nossos Espaços</h2>
           <p className="text-lg text-text-muted max-w-3xl mx-auto">
@@ -591,7 +591,7 @@ export default function LandingPage() {
       </section>
 
       {/* 5. PROVA SOCIAL */}
-      <section id="depoimentos" className="section-padding bg-soft-blue/20 overflow-hidden">
+      <section id="depoimentos" className="section-padding bg-[var(--color-section-terracota)] overflow-hidden">
         <div className="container-custom text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold text-text-main">O que os pais dizem</h2>
         </div>
@@ -631,7 +631,7 @@ export default function LandingPage() {
       </section>
 
       {/* 6. COMO FUNCIONA (REPROJETADO) */}
-      <section id="como-funciona" className="section-padding bg-soft-lavender/20">
+      <section id="como-funciona" className="section-padding bg-[var(--color-section-blue)]">
         <div className="container-custom text-center mb-20">
           <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">O Processo de Acolhimento</h2>
           <p className="text-lg text-text-muted">Como iniciamos a transformação na vida da sua família.</p>
@@ -656,7 +656,7 @@ export default function LandingPage() {
       </section>
 
       {/* 7. QUEBRA DE OBJEÇÃO (FAQ) */}
-      <section className="section-padding bg-soft-yellow/30">
+      <section className="section-padding bg-[var(--color-section-caramelo)]">
         <div className="container-custom max-w-3xl">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-16 text-text-main">Ainda com dúvidas?</h2>
           <div className="space-y-4">
@@ -681,8 +681,8 @@ export default function LandingPage() {
       </section>
 
       {/* 8. CTA INTERMEDIÁRIO */}
-      <section className="py-24 bg-gradient-to-r from-soft-mint/40 via-background to-soft-blue/30 border-y border-primary/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-brand-pattern opacity-20 mix-blend-multiply pointer-events-none"></div>
+      <section className="py-24 bg-gradient-to-r from-[var(--color-section-green)] via-background to-[var(--color-section-terracota)] border-y border-primary/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-brand-pattern"></div>
         <div className="container-custom text-center relative z-10">
           <div>
              <h2 className="text-2xl md:text-4xl font-bold text-text-main mb-10 leading-tight max-w-3xl mx-auto">Não deixe para depois. O tempo é o melhor aliado do seu filho.</h2>

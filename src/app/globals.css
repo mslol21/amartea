@@ -22,10 +22,12 @@
   --color-soft-beige: #D8BDAD; /* Bege claro da marca */
   --color-soft-beige-light: rgba(216, 189, 173, 0.2);
   
-  --color-soft-blue: rgba(150, 168, 168, 0.15);
-  --color-soft-yellow: rgba(201, 139, 90, 0.15);
-  --color-soft-mint: rgba(159, 175, 150, 0.15);
-  --color-soft-lavender: rgba(187, 117, 97, 0.1); 
+  /* Cores Transicionais de Seção */
+  --color-section-beige: rgba(216, 189, 173, 0.25); /* Bege claro */
+  --color-section-terracota: rgba(187, 117, 97, 0.12); /* Terracota */
+  --color-section-caramelo: rgba(201, 139, 90, 0.15); /* Caramelo */
+  --color-section-blue: rgba(150, 168, 168, 0.2); /* Azul suave */
+  --color-section-green: rgba(159, 175, 150, 0.25); /* Verde suave */
 
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #1EBE5D;
@@ -101,4 +103,7 @@ html {
   background-image: url("/brand-pattern.png");
   background-repeat: repeat;
   background-size: 300px;
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
