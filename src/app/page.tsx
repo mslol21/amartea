@@ -263,7 +263,7 @@ export default function LandingPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4 mt-8">
                   <div className="h-48 bg-soft-blue rounded-3xl overflow-hidden">
-                     <Image src="/salapsicologia.jpeg" alt="Terapia" width={300} height={200} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all cursor-pointer" />
+                     <Image src="/salapsicologia.jpeg" alt="Terapia" width={300} height={200} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="h-64 bg-primary rounded-3xl flex items-center justify-center p-8 text-white text-center shadow-lg">
                     <p className="font-bold text-xl">Integração Total entre Áreas</p>
@@ -274,7 +274,7 @@ export default function LandingPage() {
                      <p className="font-bold text-xl">Evolução Monitorada</p>
                   </div>
                   <div className="h-48 bg-soft-lavender rounded-3xl overflow-hidden">
-                     <Image src="/salapsicopedagogia.jpeg" alt="Equipe" width={300} height={200} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all cursor-pointer" />
+                     <Image src="/salapsicopedagogia.jpeg" alt="Equipe" width={300} height={200} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                   </div>
                 </div>
               </div>
