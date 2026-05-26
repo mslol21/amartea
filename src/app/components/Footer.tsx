@@ -10,9 +10,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary text-white pt-24 pb-12 relative overflow-hidden">
-      {/* Pattern Overlay */}
-      <div className="absolute inset-0 bg-brand-pattern opacity-10 mix-blend-overlay"></div>
-      
       <div className="container-custom relative z-10">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           <div className="space-y-6">

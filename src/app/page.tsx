@@ -639,13 +639,12 @@ export default function LandingPage() {
             { n: "3", title: "Avaliação Global", desc: "Sessões específicas com as especialidades necessárias para o caso." },
             { n: "4", title: "Entrega de Laudo", desc: "Reunião de devolutiva com o plano terapêutico detalhado e metas." }
           ].map((step, i) => (
-            <div key={i} className="relative group">
-              <div className="w-20 h-20 rounded-3xl bg-surface text-primary text-3xl font-bold flex items-center justify-center mx-auto mb-8 shadow-sm border border-primary/10 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+            <div key={i} className="relative group bg-surface/60 backdrop-blur-md p-8 rounded-[2rem] border border-surface shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-surface text-primary text-2xl font-bold flex items-center justify-center mb-6 shadow-sm border border-primary/10 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                 {step.n}
               </div>
-              <h4 className="text-xl font-bold mb-4 text-text-main">{step.title}</h4>
+              <h4 className="text-xl font-bold mb-3 text-text-main">{step.title}</h4>
               <p className="text-text-muted text-sm leading-relaxed">{step.desc}</p>
-              {i < 3 && <div className="hidden lg:block absolute top-10 left-[calc(50%+3rem)] w-full h-[1px] border-t border-dashed border-primary/30 -z-0" />}
             </div>
           ))}
         </div>
