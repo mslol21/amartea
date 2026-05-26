@@ -55,10 +55,10 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center pt-28 bg-gradient-to-br from-primary/10 via-background to-secondary/5 overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center pt-28 bg-gradient-to-br from-primary/10 via-transparent to-secondary/5 overflow-hidden">
         <div className="container-custom grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/80 backdrop-blur shadow-sm border border-primary/10 text-primary-dark font-medium mb-6">
@@ -374,7 +374,7 @@ export default function LandingPage() {
       </section>
 
       {/* NOVO: METODOLOGIAS */}
-      <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-accent/10 overflow-hidden relative">
+      <section className="section-padding bg-gradient-to-br from-primary/10 via-transparent to-accent/10 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-surface/30 skew-x-12 translate-x-1/2 z-0" />
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -677,7 +677,7 @@ export default function LandingPage() {
       </section>
 
       {/* 8. CTA INTERMEDIÁRIO */}
-      <section className="py-24 bg-gradient-to-r from-primary/10 via-background to-secondary/10 border-y border-primary/5 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10 border-y border-primary/5 relative overflow-hidden">
         <div className="container-custom text-center relative z-10">
           <div>
              <h2 className="text-2xl md:text-4xl font-bold text-text-main mb-10 leading-tight max-w-3xl mx-auto">Não deixe para depois. O tempo é o melhor aliado do seu filho.</h2>
