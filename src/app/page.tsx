@@ -58,8 +58,9 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-screen bg-background">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 bg-gradient-to-br from-soft-mint via-background to-soft-blue overflow-hidden">
-        <div className="container-custom grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <section className="relative min-h-[90vh] flex items-center pt-28 bg-gradient-to-br from-[var(--color-soft-beige-light)] via-background to-soft-mint overflow-hidden">
+        <div className="absolute inset-0 bg-brand-pattern opacity-[0.03] mix-blend-multiply"></div>
+        <div className="container-custom grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/80 backdrop-blur shadow-sm border border-primary/10 text-primary-dark font-medium mb-6">
               <ShieldCheck size={18} />
@@ -110,8 +111,9 @@ export default function LandingPage() {
       </section>
 
       {/* 2. BLOCO DE IDENTIFICAÇÃO (DOR) */}
-      <section className="section-padding bg-background">
-        <div className="container-custom">
+      <section className="section-padding bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-full h-full bg-brand-pattern opacity-[0.02] mix-blend-multiply pointer-events-none" />
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">Você tem percebido isso no seu filho?</h2>
@@ -129,7 +131,7 @@ export default function LandingPage() {
               ].map((item, i) => (
                 <div 
                   key={i} 
-                  className="flex items-center gap-4 p-6 rounded-2xl bg-secondary-bg/50 border border-secondary/10"
+                  className="flex items-center gap-5 p-6 rounded-[2rem] bg-surface border border-secondary/10 shadow-xl shadow-secondary/5 hover:-translate-y-1 hover:shadow-secondary/10 transition-all duration-300"
                 >
                   <div className="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 size={20} />
@@ -361,7 +363,7 @@ export default function LandingPage() {
           ].map((service, i) => (
             <div 
               key={i}
-              className="p-8 rounded-[2.5rem] bg-surface border border-primary/5 hover:border-primary/20 hover:shadow-lg transition-all group shadow-sm"
+              className="p-8 card-premium group flex flex-col h-full"
             >
               <div className={`mb-6 p-4 rounded-2xl w-fit ${service.color}`}>
                 {service.icon}
@@ -374,8 +376,9 @@ export default function LandingPage() {
       </section>
 
       {/* NOVO: METODOLOGIAS */}
-      <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-surface/30 skew-x-12 translate-x-1/2" />
+      <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-[var(--color-soft-beige-light)] overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-surface/30 skew-x-12 translate-x-1/2 z-0" />
+        <div className="absolute inset-0 bg-brand-pattern opacity-[0.03] mix-blend-multiply z-0"></div>
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -480,7 +483,7 @@ export default function LandingPage() {
               <div key={item.id}>
                 <Link 
                   href={`/glossario/${item.id}`} 
-                  className="block p-6 md:p-8 bg-surface rounded-[2rem] border border-primary/5 hover:border-primary/20 shadow-sm hover:shadow-md transition-all h-full"
+                  className="block p-6 md:p-8 card-premium group h-full"
                 >
                   <div className="text-2xl md:text-3xl font-bold mb-2 font-heading" style={{ color: item.color }}>
                     {item.abbr}
@@ -611,7 +614,7 @@ export default function LandingPage() {
           ].map((item, i) => (
             <div 
               key={i} 
-              className="bg-surface p-10 rounded-[2.5rem] shadow-sm relative border border-primary/5"
+              className="p-10 card-premium relative"
             >
               <div className="flex gap-1 text-mustard mb-6">
                 {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
@@ -657,7 +660,7 @@ export default function LandingPage() {
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-16 text-text-main">Ainda com dúvidas?</h2>
           <div className="space-y-4">
             {faqData.map((faq, i) => (
-              <div key={i} className="bg-surface rounded-3xl overflow-hidden border border-primary/5 shadow-sm">
+              <div key={i} className="card-premium overflow-hidden">
                 <button 
                   onClick={() => setActiveFaq(activeFaq === i ? null : i)}
                   className="w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-text-main hover:bg-background/50 transition-colors"
@@ -677,8 +680,9 @@ export default function LandingPage() {
       </section>
 
       {/* 8. CTA INTERMEDIÁRIO */}
-      <section className="py-20 bg-gradient-to-r from-soft-mint/40 via-background to-soft-blue/30 border-y border-primary/5">
-        <div className="container-custom text-center">
+      <section className="py-24 bg-gradient-to-r from-soft-mint/40 via-background to-soft-blue/30 border-y border-primary/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-brand-pattern opacity-5 mix-blend-multiply"></div>
+        <div className="container-custom text-center relative z-10">
           <div>
              <h2 className="text-2xl md:text-4xl font-bold text-text-main mb-10 leading-tight max-w-3xl mx-auto">Não deixe para depois. O tempo é o melhor aliado do seu filho.</h2>
              <a 

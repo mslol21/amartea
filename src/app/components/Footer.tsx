@@ -9,8 +9,11 @@ export default function Footer() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá, vim pelo site e quero agendar uma avaliação")}`;
 
   return (
-    <footer className="bg-primary-dark text-white pt-20 pb-10">
-      <div className="container-custom">
+    <footer className="bg-primary text-white pt-24 pb-12 relative overflow-hidden">
+      {/* Pattern Overlay */}
+      <div className="absolute inset-0 bg-brand-pattern opacity-10 mix-blend-overlay"></div>
+      
+      <div className="container-custom relative z-10">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           <div className="space-y-6">
             <Link href="/" className="inline-block bg-surface p-2 rounded-xl shadow-sm">

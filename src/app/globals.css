@@ -1,35 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #859b7b; /* Verde Oliva da logo */
-  --color-primary-light: #a3b89a;
-  --color-primary-dark: #637759;
-  --color-primary-bg: #f3f7f2;
+  /* NOVA IDENTIDADE VISUAL OFICIAL AMAR-TEA */
+  --color-primary: #9FAF96; /* Verde suave */
+  --color-primary-light: #b4c1ac;
+  --color-primary-dark: #7b8e72;
+  --color-primary-bg: rgba(159, 175, 150, 0.1);
   
-  --color-secondary: #d97a61; /* Laranja Terroso do coração */
-  --color-secondary-light: #e69d8a;
-  --color-secondary-bg: #fcf4f2;
+  --color-secondary: #BB7561; /* Terracota */
+  --color-secondary-light: #c88c7b;
+  --color-secondary-bg: rgba(187, 117, 97, 0.1);
 
-  --color-accent: #698b9e; /* Azul Acinzentado da logo */
-  --color-accent-light: #8daac0;
-  --color-accent-bg: #f0f4f7;
+  --color-accent: #96A8A8; /* Azul suave */
+  --color-accent-light: #aebdbd;
+  --color-accent-bg: rgba(150, 168, 168, 0.1);
 
-  --color-mustard: #d6a863; /* Amarelo Mostarda da logo */
-  --color-mustard-bg: #fcf8f0;
+  --color-mustard: #C98B5A; /* Caramelo */
+  --color-mustard-bg: rgba(201, 139, 90, 0.1);
 
-  --color-soft-blue: #f0f4f7;
-  --color-soft-yellow: #fcf8f0;
-  --color-soft-mint: #f3f7f2;
-  --color-soft-lavender: #fcf4f2; /* Trocando lavanda por fundo terroso suave */
+  /* Fundos e Texturas */
+  --color-soft-beige: #D8BDAD; /* Bege claro da marca */
+  --color-soft-beige-light: rgba(216, 189, 173, 0.2);
+  
+  --color-soft-blue: rgba(150, 168, 168, 0.15);
+  --color-soft-yellow: rgba(201, 139, 90, 0.15);
+  --color-soft-mint: rgba(159, 175, 150, 0.15);
+  --color-soft-lavender: rgba(187, 117, 97, 0.1); 
 
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #1EBE5D;
 
-  --color-background: #fbfaf8; /* Slightly more muted/neutral for visual comfort */
+  --color-background: #FCFAF8; /* Warm off-white ultra premium */
   --color-surface: #ffffff;
   
-  --color-text-main: #3d3d3c;
-  --color-text-muted: #6e6e6c;
+  --color-text-main: #4a4a49; /* Softer dark gray for better reading */
+  --color-text-muted: #7d7d7b;
 
   --font-heading: var(--font-heading), sans-serif;
   --font-body: var(--font-body), sans-serif;
@@ -81,5 +86,18 @@ html {
 }
 
 .section-padding {
-  @apply py-20 md:py-32;
+  @apply py-24 md:py-32;
+}
+
+.glass-header {
+  @apply bg-surface/85 backdrop-blur-lg border-b border-primary/10 shadow-sm;
+}
+
+.card-premium {
+  @apply bg-surface rounded-[2rem] border border-primary/5 shadow-xl shadow-primary/5 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300;
+}
+
+.bg-brand-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D8BDAD' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M25 25c0-5 4-10 10-10s10 5 10 10c0 5-10 15-10 15s-10-10-10-15zm50 50v-5h-5v5h-5v5h5v5h5v-5h5v-5h-5z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100px 100px;
 }

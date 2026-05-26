@@ -43,23 +43,24 @@ export default function Header() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
-        scrolled || isMenuOpen ? "bg-white/95 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
+      <header className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ${
+        scrolled || isMenuOpen ? "glass-header py-3" : "bg-transparent py-5"
       }`}>
         <div className="container-custom flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Logo Amar-TEA" width={60} height={60} className="w-auto h-10 md:h-14" />
+            <Image src="/logo.png" alt="Logo Amar-TEA" width={70} height={70} className="w-auto h-12 md:h-16 transition-transform hover:scale-105 duration-300" />
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href} 
-                className="font-heading font-medium text-text-main hover:text-primary transition-colors text-sm xl:text-base"
+                className="font-heading font-bold text-text-main hover:text-primary transition-colors text-sm xl:text-base relative group"
               >
                 {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </nav>
@@ -69,7 +70,7 @@ export default function Header() {
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hidden sm:block bg-primary hover:bg-primary-dark text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-heading font-bold text-xs md:text-base shadow-lg transition-all active:scale-95 whitespace-nowrap"
+              className="hidden sm:flex items-center gap-2 bg-secondary hover:bg-secondary-light text-white px-6 py-3 rounded-[2rem] font-heading font-bold text-sm md:text-base shadow-xl shadow-secondary/20 transition-all duration-300 hover:-translate-y-1 whitespace-nowrap"
             >
               Agendar Avaliação
             </a>
