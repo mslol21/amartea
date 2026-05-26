@@ -60,7 +60,7 @@ export default function LandingPage() {
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center pt-28 bg-gradient-to-br from-primary/10 via-transparent to-secondary/5 overflow-hidden">
         <div className="container-custom grid lg:grid-cols-2 gap-16 items-center relative z-10">
-          <div>
+          <div className="bg-surface/80 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-surface/50 shadow-xl shadow-primary/5">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/80 backdrop-blur shadow-sm border border-primary/10 text-primary-dark font-medium mb-6">
               <ShieldCheck size={18} />
               <span>Clínica Especializada em Desenvolvimento Infantil</span>
@@ -113,8 +113,8 @@ export default function LandingPage() {
       <section className="section-padding bg-secondary/10 relative overflow-hidden">
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">Você tem percebido isso no seu filho?</h2>
+            <div className="text-center mb-16 bg-surface/80 backdrop-blur-md p-8 md:p-10 rounded-[2rem] border border-surface/50 shadow-sm">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4 text-text-main">Você tem percebido isso no seu filho?</h2>
               <p className="text-lg text-text-muted">Sinais que podem indicar a necessidade de um acompanhamento especializado.</p>
             </div>
             
@@ -152,11 +152,11 @@ export default function LandingPage() {
       {/* 2.5 ESPECIALIDADES FOCO */}
       <section className="section-padding bg-accent/10">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">Áreas de Especialidade</h2>
-            <p className="text-lg text-text-muted max-w-2xl mx-auto">
-              Nossa equipe está preparada para oferecer o suporte específico que cada diagnóstico exige.
-            </p>
+          <div className="text-center mb-16 flex justify-center">
+            <div className="bg-surface/80 backdrop-blur-md p-8 md:p-10 rounded-[2rem] border border-surface/50 shadow-sm max-w-3xl inline-block">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4 text-text-main">Áreas de Especialidade</h2>
+              <p className="text-lg text-text-muted">Nossa equipe está preparada para oferecer o suporte específico que cada diagnóstico exige.</p>
+            </div>
           </div>
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
@@ -189,8 +189,8 @@ export default function LandingPage() {
       <section id="sobre" className="section-padding bg-mustard/10">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-2xl md:text-4xl font-bold mb-8 text-text-main">Especialistas em desenvolvimento infantil</h2>
+            <div className="bg-surface/80 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-surface/50 shadow-sm">
+              <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">Especialistas em desenvolvimento infantil</h2>
               <p className="text-base text-text-muted mb-6 leading-relaxed">
                 Somos uma clínica multidisciplinar focada no desenvolvimento integral de crianças. Nossa equipe é composta por profissionais apaixonados e altamente qualificados.
               </p>
@@ -234,7 +234,7 @@ export default function LandingPage() {
       <section className="py-20 bg-primary/10 overflow-hidden relative">
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 bg-surface/80 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-surface/50 shadow-sm">
               <div className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary-dark font-bold text-sm mb-6 uppercase tracking-widest">
                 Time de Especialistas
               </div>
@@ -290,11 +290,14 @@ export default function LandingPage() {
 
       {/* 4. SOLUÇÃO (SERVIÇOS) */}
       <section id="especialidades" className="section-padding bg-background">
-        <div className="container-custom text-center mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">Nossos Serviços Especializados</h2>
-          <p className="text-lg text-text-muted max-w-3xl mx-auto">
-            Oferecemos excelência em intervenção pelo <strong>Método ABA</strong> para neurodesenvolvimento, além de realizarmos todos os <strong>atendimentos terapêuticos convencionais</strong> para pacientes de diversas necessidades e idades.
-          </p>
+        <div className="container-custom text-center mb-16 flex justify-center">
+          <div className="bg-surface/80 backdrop-blur-md p-8 md:p-10 rounded-[2rem] border border-surface/50 shadow-sm max-w-4xl inline-block">
+            <h2 className="text-2xl md:text-4xl font-bold mb-4 text-text-main">Nossos Serviços Especializados</h2>
+            <p className="text-lg text-text-muted max-w-3xl mx-auto">
+              Oferecemos excelência em intervenção pelo <strong>Método ABA</strong> para neurodesenvolvimento, 
+              além de realizarmos todos os <strong>atendimentos terapêuticos convencionais</strong> para pacientes de diversas necessidades e idades.
+            </p>
+          </div>
         </div>
         <div className="container-custom grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
@@ -378,7 +381,7 @@ export default function LandingPage() {
         <div className="absolute top-0 right-0 w-1/3 h-full bg-surface/30 skew-x-12 translate-x-1/2 z-0" />
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div className="bg-surface/80 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-surface/50 shadow-sm">
               <h2 className="text-3xl md:text-5xl font-bold mb-8 italic tracking-tight text-text-main">Ciência e <span className="text-primary">Evolução</span></h2>
               <p className="text-lg text-text-muted mb-10 leading-relaxed">
                 Nossas intervenções seguem os protocolos internacionais mais rigorosos, garantindo que cada minuto de terapia seja focado no potencial do seu filho.
@@ -467,12 +470,14 @@ export default function LandingPage() {
       {/* NOVO: Entendendo as Siglas (Glossário) */}
       <section id="glossario" className="section-padding bg-accent/10">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">Entendendo as Siglas</h2>
-            <p className="text-lg text-text-muted max-w-3xl mx-auto">
-              O universo do neurodesenvolvimento tem muitos termos técnicos. 
-              Preparamos um guia rápido e didático para ajudar você a compreender as principais siglas:
-            </p>
+          <div className="text-center mb-16 flex justify-center">
+            <div className="bg-surface/80 backdrop-blur-md p-8 md:p-10 rounded-[2rem] border border-surface/50 shadow-sm inline-block mx-auto max-w-3xl">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4 text-text-main">Entendendo as Siglas</h2>
+              <p className="text-lg text-text-muted">
+                O universo do neurodesenvolvimento tem muitos termos técnicos. 
+                Preparamos um guia rápido e didático para ajudar você a compreender as principais siglas:
+              </p>
+            </div>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -502,7 +507,7 @@ export default function LandingPage() {
       <section className="section-padding bg-mustard/10">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
+            <div className="order-2 lg:order-1 bg-surface/80 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-surface/50 shadow-sm">
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-soft-mint/40 p-8 rounded-[3rem] aspect-square flex flex-col justify-center items-center text-center shadow-sm">
                   <div className="text-4xl font-bold text-primary mb-2">01</div>
@@ -555,11 +560,13 @@ export default function LandingPage() {
 
       {/* NOVO: ESPAÇOS DA CLÍNICA (GALERIA) */}
       <section id="espacos" className="section-padding bg-primary/10 overflow-hidden">
-        <div className="container-custom text-center mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold text-text-main mb-6">Nossos Espaços</h2>
-          <p className="text-lg text-text-muted max-w-3xl mx-auto">
-            Conheça os ambientes da Amar-TEA, projetados com carinho para oferecer o máximo de conforto, segurança e acolhimento para o seu filho.
-          </p>
+        <div className="container-custom text-center mb-16 flex justify-center">
+          <div className="bg-surface/80 backdrop-blur-md p-8 md:p-10 rounded-[2rem] border border-surface/50 shadow-sm inline-block mx-auto max-w-3xl">
+            <h2 className="text-2xl md:text-4xl font-bold text-text-main mb-6">Nossos Espaços</h2>
+            <p className="text-lg text-text-muted max-w-3xl mx-auto">
+              Conheça os ambientes da Amar-TEA, projetados com carinho para oferecer o máximo de conforto, segurança e acolhimento para o seu filho.
+            </p>
+          </div>
         </div>
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -588,8 +595,10 @@ export default function LandingPage() {
 
       {/* 5. PROVA SOCIAL */}
       <section id="depoimentos" className="section-padding bg-secondary/10 overflow-hidden">
-        <div className="container-custom text-center mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold text-text-main">O que os pais dizem</h2>
+        <div className="container-custom text-center mb-16 flex justify-center">
+          <div className="bg-surface/80 backdrop-blur-md p-8 md:p-10 rounded-[2rem] border border-surface/50 shadow-sm inline-block mx-auto max-w-3xl">
+            <h2 className="text-2xl md:text-4xl font-bold text-text-main">O que os pais dizem</h2>
+          </div>
         </div>
         <div className="container-custom grid md:grid-cols-3 gap-8">
           {[
@@ -628,9 +637,11 @@ export default function LandingPage() {
 
       {/* 6. COMO FUNCIONA (REPROJETADO) */}
       <section id="como-funciona" className="section-padding bg-accent/10">
-        <div className="container-custom text-center mb-20">
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 text-text-main">O Processo de Acolhimento</h2>
-          <p className="text-lg text-text-muted">Como iniciamos a transformação na vida da sua família.</p>
+        <div className="container-custom text-center mb-20 flex justify-center">
+          <div className="bg-surface/80 backdrop-blur-md p-8 md:p-10 rounded-[2rem] border border-surface/50 shadow-sm inline-block mx-auto max-w-3xl">
+            <h2 className="text-2xl md:text-4xl font-bold mb-4 text-text-main">O Processo de Acolhimento</h2>
+            <p className="text-lg text-text-muted">Como iniciamos a transformação na vida da sua família.</p>
+          </div>
         </div>
         <div className="container-custom grid md:grid-cols-4 gap-8">
           {[
@@ -653,7 +664,9 @@ export default function LandingPage() {
       {/* 7. QUEBRA DE OBJEÇÃO (FAQ) */}
       <section className="section-padding bg-mustard/10">
         <div className="container-custom max-w-3xl">
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-16 text-text-main">Ainda com dúvidas?</h2>
+          <div className="bg-surface/80 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-surface/50 shadow-sm mb-12">
+            <h2 className="text-2xl md:text-4xl font-bold text-center text-text-main">Ainda com dúvidas?</h2>
+          </div>
           <div className="space-y-4">
             {faqData.map((faq, i) => (
               <div key={i} className="card-premium overflow-hidden">
