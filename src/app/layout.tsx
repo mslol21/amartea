@@ -34,11 +34,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${outfit.variable} ${inter.variable}`}>
-      <body className="antialiased font-body">
-        <Header />
-        {children}
-        <Footer />
-        <WhatsAppButton />
+      <body className="antialiased font-body relative">
+        <div className="fixed inset-0 w-full h-full bg-brand-pattern opacity-[0.06] mix-blend-multiply pointer-events-none z-0"></div>
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Header />
+          {children}
+          <Footer />
+          <WhatsAppButton />
+        </div>
       </body>
     </html>
   );

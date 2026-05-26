@@ -59,7 +59,6 @@ export default function LandingPage() {
       
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center pt-28 bg-gradient-to-br from-primary/10 via-background to-secondary/5 overflow-hidden">
-        <div className="absolute inset-0 w-full h-full bg-brand-pattern opacity-[0.03] mix-blend-multiply pointer-events-none z-0"></div>
         <div className="container-custom grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/80 backdrop-blur shadow-sm border border-primary/10 text-primary-dark font-medium mb-6">
@@ -112,7 +111,6 @@ export default function LandingPage() {
 
       {/* 2. BLOCO DE IDENTIFICAÇÃO (DOR) */}
       <section className="section-padding bg-secondary/10 relative overflow-hidden">
-        <div className="absolute inset-0 w-full h-full bg-brand-pattern opacity-[0.03] mix-blend-multiply pointer-events-none z-0"></div>
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -234,7 +232,6 @@ export default function LandingPage() {
 
       {/* NOVO: EQUIPE MULTIDISCIPLINAR */}
       <section className="py-20 bg-primary/10 overflow-hidden relative">
-        <div className="absolute inset-0 w-full h-full bg-brand-pattern opacity-[0.03] mix-blend-multiply pointer-events-none z-0"></div>
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2">
@@ -379,7 +376,6 @@ export default function LandingPage() {
       {/* NOVO: METODOLOGIAS */}
       <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-accent/10 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-surface/30 skew-x-12 translate-x-1/2 z-0" />
-        <div className="absolute inset-0 w-full h-full bg-brand-pattern opacity-[0.03] mix-blend-multiply pointer-events-none z-0"></div>
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -682,7 +678,6 @@ export default function LandingPage() {
 
       {/* 8. CTA INTERMEDIÁRIO */}
       <section className="py-24 bg-gradient-to-r from-primary/10 via-background to-secondary/10 border-y border-primary/5 relative overflow-hidden">
-        <div className="absolute inset-0 w-full h-full bg-brand-pattern opacity-[0.03] mix-blend-multiply pointer-events-none z-0"></div>
         <div className="container-custom text-center relative z-10">
           <div>
              <h2 className="text-2xl md:text-4xl font-bold text-text-main mb-10 leading-tight max-w-3xl mx-auto">Não deixe para depois. O tempo é o melhor aliado do seu filho.</h2>
