@@ -507,31 +507,31 @@ export default function LandingPage() {
       <section className="section-padding bg-mustard/10">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 bg-surface/80 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-surface/50 shadow-sm">
+            <div className="order-2 lg:order-1">
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-soft-mint/40 p-8 rounded-[3rem] aspect-square flex flex-col justify-center items-center text-center shadow-sm">
+                <div className="bg-surface/80 backdrop-blur-md p-8 rounded-[3rem] aspect-square flex flex-col justify-center items-center text-center shadow-sm border border-surface/50">
                   <div className="text-4xl font-bold text-primary mb-2">01</div>
                   <div className="font-bold text-lg text-text-main">Triagem Inicial</div>
                   <p className="text-xs text-text-muted mt-2">Identificação das principais demandas da família e da criança.</p>
                 </div>
-                <div className="bg-soft-blue/40 p-8 rounded-[3rem] aspect-square flex flex-col justify-center items-center text-center mt-8 shadow-sm">
+                <div className="bg-surface/80 backdrop-blur-md p-8 rounded-[3rem] aspect-square flex flex-col justify-center items-center text-center mt-8 shadow-sm border border-surface/50">
                   <div className="text-4xl font-bold text-secondary mb-2">02</div>
                   <div className="font-bold text-lg text-text-main">Avaliação Multi</div>
                   <p className="text-xs text-text-muted mt-2">Diversos olhares técnicos para um diagnóstico preciso.</p>
                 </div>
-                <div className="bg-soft-lavender/40 p-8 rounded-[3rem] aspect-square flex flex-col justify-center items-center text-center -mt-8 shadow-sm">
+                <div className="bg-surface/80 backdrop-blur-md p-8 rounded-[3rem] aspect-square flex flex-col justify-center items-center text-center -mt-8 shadow-sm border border-surface/50">
                   <div className="text-4xl font-bold text-accent mb-2">03</div>
                   <div className="font-bold text-lg text-text-main">Plano Terapêutico</div>
                   <p className="text-xs text-text-muted mt-2">Criação do PEI (Plano de Ensino Individualizado).</p>
                 </div>
-                <div className="bg-soft-yellow/40 p-8 rounded-[3rem] aspect-square flex flex-col justify-center items-center text-center shadow-sm">
+                <div className="bg-surface/80 backdrop-blur-md p-8 rounded-[3rem] aspect-square flex flex-col justify-center items-center text-center shadow-sm border border-surface/50">
                   <div className="text-4xl font-bold text-mustard mb-2">04</div>
                   <div className="font-bold text-lg text-text-main">Intervenção</div>
                   <p className="text-xs text-text-muted mt-2">Início das terapias com foco total em resultados.</p>
                 </div>
               </div>
             </div>
-            <div className="order-1 lg:order-2">
+            <div className="order-1 lg:order-2 bg-surface/80 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-surface/50 shadow-sm">
               <h2 className="text-3xl md:text-5xl font-bold mb-8 text-text-main">A Jornada do Seu Filho na Amar-TEA</h2>
               <p className="text-lg text-text-muted mb-8 leading-relaxed">
                 Entendemos que cada criança é única. Por isso, nossa reabilitação não é um pacote fechado, mas um processo vivo e dinâmico.
