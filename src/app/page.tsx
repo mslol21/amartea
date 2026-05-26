@@ -90,7 +90,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div 
-            className="relative lg:block hidden"
+            className="relative mt-8 lg:mt-0"
           >
             <div className="relative z-20 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-surface">
               <Image 
