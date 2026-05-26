@@ -98,6 +98,7 @@ html {
 }
 
 .bg-brand-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D8BDAD' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M25 25c0-5 4-10 10-10s10 5 10 10c0 5-10 15-10 15s-10-10-10-15zm50 50v-5h-5v5h-5v5h5v5h5v-5h5v-5h-5z'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 100px 100px;
+  background-image: url("/brand-pattern.png");
+  background-repeat: repeat;
+  background-size: 300px;
 }
