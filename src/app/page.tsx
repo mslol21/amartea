@@ -435,15 +435,13 @@ export default function LandingPage() {
                 <span className="text-lg font-bold text-text-main">Convênios aceitos:</span>
               </div>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
-                {["Via Saúde", "Via Net", "São Miguel Saúde", "Sagrada Família"].map((convenio) => (
-                  <div
-                    key={convenio}
-                    className="px-5 py-2.5 bg-surface rounded-2xl shadow-sm border border-primary/10 font-bold text-primary-dark text-sm hover:shadow-md transition-all text-center whitespace-nowrap"
-                  >
-                    {convenio}
-                  </div>
-                ))}
-                <div className="px-5 py-2.5 bg-surface/50 rounded-2xl shadow-sm border border-dashed border-primary/20 font-medium text-text-muted text-sm text-center whitespace-nowrap">
+                <div className="px-4 py-2 bg-surface rounded-2xl shadow-sm border border-primary/10 hover:shadow-md transition-all flex items-center justify-center h-14 w-36">
+                  <img src="https://saomiguelsaude.com.br/wp-content/uploads/2019/11/logo.png" alt="São Miguel Saúde" className="max-h-full max-w-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="font-bold text-primary-dark text-sm">São Miguel Saúde</span>' }} />
+                </div>
+                <div className="px-4 py-2 bg-surface rounded-2xl shadow-sm border border-primary/10 hover:shadow-md transition-all flex items-center justify-center h-14 w-36">
+                  <img src="https://sagradafamiliasaude.com.br/wp-content/uploads/2022/02/logo_sagrada_familia.png" alt="Sagrada Família Saúde" className="max-h-full max-w-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="font-bold text-primary-dark text-sm">Sagrada Família</span>' }} />
+                </div>
+                <div className="px-5 py-2.5 bg-surface/50 rounded-2xl shadow-sm border border-dashed border-primary/20 font-medium text-text-muted text-sm text-center flex items-center h-14 whitespace-nowrap">
                   + Consulte outros
                 </div>
               </div>
