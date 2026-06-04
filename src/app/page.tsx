@@ -437,16 +437,11 @@ export default function LandingPage() {
                 <span className="text-lg font-bold text-text-main">Convênios aceitos:</span>
               </div>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
-                <div className="px-5 py-2.5 bg-white rounded-2xl shadow-sm border border-primary/10 hover:shadow-md transition-all flex items-center justify-center gap-2">
-                  <ShieldPlus className="text-blue-600" size={20} />
-                  <span className="font-bold text-blue-900 text-sm tracking-tight">São Miguel Saúde</span>
+                <div className="px-4 py-2 bg-white rounded-2xl shadow-sm border border-primary/10 hover:shadow-md transition-all flex items-center justify-center h-14 w-36 overflow-hidden">
+                  <Image src="/logosaomigue.jpg" alt="São Miguel Saúde" width={120} height={40} className="w-full h-full object-contain mix-blend-multiply" />
                 </div>
-                <div className="px-5 py-2.5 bg-white rounded-2xl shadow-sm border border-primary/10 hover:shadow-md transition-all flex items-center justify-center gap-2">
-                  <HeartPulse className="text-emerald-600" size={20} />
-                  <span className="font-bold text-emerald-900 text-sm tracking-tight">Sagrada Família</span>
-                </div>
-                <div className="px-5 py-2.5 bg-surface/50 rounded-2xl shadow-sm border border-dashed border-primary/20 font-medium text-text-muted text-sm text-center flex items-center h-14 whitespace-nowrap">
-                  + Consulte outros
+                <div className="px-4 py-2 bg-white rounded-2xl shadow-sm border border-primary/10 hover:shadow-md transition-all flex items-center justify-center h-14 w-36 overflow-hidden">
+                  <Image src="/logosagrada.jfif" alt="Sagrada Família" width={120} height={40} className="w-full h-full object-contain mix-blend-multiply" />
                 </div>
               </div>
             </div>
