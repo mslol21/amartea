@@ -437,11 +437,11 @@ export default function LandingPage() {
                 <span className="text-lg font-bold text-text-main">Convênios aceitos:</span>
               </div>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
-                <div className="px-4 py-2 bg-white rounded-2xl shadow-sm border border-primary/10 hover:shadow-md transition-all flex items-center justify-center h-14 w-36 overflow-hidden">
-                  <Image src="/logosaomigue.jpg" alt="São Miguel Saúde" width={120} height={40} className="w-full h-full object-contain mix-blend-multiply" />
+                <div className="px-4 py-2 bg-white rounded-2xl shadow-sm border border-primary/10 hover:shadow-md transition-all flex items-center justify-center h-16 w-40 overflow-hidden relative">
+                  <Image src="/logosaomigue.jpg" alt="São Miguel Saúde" width={140} height={50} className="scale-[1.35] object-cover mix-blend-multiply" unoptimized />
                 </div>
-                <div className="px-4 py-2 bg-white rounded-2xl shadow-sm border border-primary/10 hover:shadow-md transition-all flex items-center justify-center h-14 w-36 overflow-hidden">
-                  <Image src="/logosagrada.jfif" alt="Sagrada Família" width={120} height={40} className="w-full h-full object-contain mix-blend-multiply" />
+                <div className="px-4 py-2 bg-white rounded-2xl shadow-sm border border-primary/10 hover:shadow-md transition-all flex items-center justify-center h-16 w-40 overflow-hidden relative">
+                  <Image src="/logosagrada.jpg" alt="Sagrada Família" width={140} height={50} className="scale-110 object-contain mix-blend-multiply" unoptimized />
                 </div>
               </div>
             </div>
